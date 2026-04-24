@@ -1,0 +1,15 @@
+# Social / contact handles — rendered on the profile side of the home page.
+# Every non-empty entry will show up; leave blank to hide.
+
+email: ylzl@mail.ynu.edu.cn
+github_username: ZhenglingYangli
+# scholar_userid:                 # your Google Scholar user ID
+# orcid_id:                       # your ORCID ID, e.g. 0000-0002-xxxx-xxxx
+# semanticscholar_id:             # your Semantic Scholar ID
+# dblp_url:                       # your DBLP profile URL
+# linkedin_username:              # your LinkedIn username
+# twitter_username:               # your Twitter handle (without @)
+# x_username:                     # your X (Twitter) handle
+# mastodon_username:              # your mastodon instance+username
+# bluesky_url:                    # your Bluesky profile URL
+# wechat_qr:                      # path to a WeChat QR image in /assets/img/

@@ -1,0 +1,100 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Zhengling Yangli (杨李正凌)
+    - name: Languages
+      value: Chinese (native), English (academic reading / writing)
+
+- title: Education
+  type: time_table
+  contents:
+    - title: B.Sc. in Statistics
+      institution: School of Mathematics and Statistics, Yunnan University
+      year: 2024 — Present
+      description:
+        - "Student ID: 20241910355"
+        - "Core coursework: Mathematical Analysis, Probability & Statistics, Operations Research, C++ Programming, R, Python"
+
+- title: Research Experience
+  type: time_table
+  contents:
+    - title: MWDS / Ant-Q plug-in for Dual-Bound Search
+      year: 2026 — Present
+      description:
+        - "Ant-Colony + Q-Learning module plugged into the LB-side pair construction of ECAI-2025 baselines Dual-Deep / Dual-Fast"
+        - "Best variants Deep-v6 and Fast-v19: −23.7% to −31.2% row-averaged gap on Deep and −6.9% to −9.9% on Fast across two test suites"
+        - "Per-instance gap win-rate up to 99.37%; identified the LB → UB coupling bottleneck through hard reduction rules"
+
+    - title: DiverseSAT (journal version)
+      year: 2025 — Present
+      description:
+        - "$k$-diverse SAT model enumeration via DW / IW threshold encodings + binary-lifting / binary-search / SAT-UNSAT"
+        - "Model-aware refinement exploiting partial solutions"
+        - "Benchmark: 289 instances across 7 families (ais, flat100±, hardware, logistics, mc2024, morphed)"
+        - "Targeting JAIR"
+
+    - title: NLIP → MaxSAT
+      year: 2025 — Present
+      description:
+        - "Systematic study of OH / UNA / BIN / BIN+DECOMP encodings for non-linear integer programming"
+        - "Built NLIP_filters pipeline across 5 source libraries (QPLIB, NL, SMT-LIB, CSPlib, XCSP)"
+        - "Benchmarks: QPLIB (137), SMT-LIB QF_NIA (2591), Diverse-SAT (287)"
+
+    - title: Fair-Ratio / UNB-MT
+      year: 2026 — Present
+      description:
+        - "Extension of DRF-MT (IJCAI 2021) to meta-type accessibility via a UNB-style mechanism"
+        - "Proved SI, intra-group EF and minority → majority EF; analyzed the failure of linear EF sufficient conditions under partial access"
+        - "+2%–6% social welfare over DRF-MT on meta-type benchmarks"
+
+    - title: MathRAG
+      year: 2025
+      description:
+        - "Retrieval-augmented mathematical reasoning with Qwen2-Math backbone"
+        - "∼94% on GSM8K and ∼89% on MATH"
+        - "Full-stack system (Vue frontend, Node.js + Redis backend)"
+
+    - title: Mindfulness × EEG Wearables
+      year: 2024 — 2025
+      description:
+        - "National College Student Innovation & Entrepreneurship Program (大创)"
+        - "Quantified mindfulness meditation effects via EEG wearable signals + standardized mental-health questionnaires"
+        - "Concluded 2025-10"
+
+- title: Awards & Honors
+  type: time_table
+  contents:
+    - year: 2025
+      items:
+        - "[National · 1st Prize] National Collegiate Computer Ability Challenge"
+        - "[National · 1st Prize] 7th Huajiao Cup National Mathematics Competition (non-math major track), final round"
+        - "[National · 1st Prize] FLTRP·Guocai Cup – Understanding Contemporary China, English comprehensive competition"
+        - "[National · Bronze Medal] ACM-ICPC International Collegiate Programming Contest"
+        - "[National · 3rd Prize] National College English Contest (Class C)"
+        - "[Provincial · 1st Prize] Chinese Mathematical Olympiad for College Students (Advanced Math)"
+        - "[Provincial · 1st Prize] National Undergraduate Mathematical Modeling Contest"
+        - "[Provincial · 1st Prize] National College Computer Application and Information Literacy Contest"
+        - "[Provincial · 2nd Prize] CCCC (GPLT) — Group Programming Ladder Tournament"
+        - "[Provincial · 3rd Prize] 18th Sail·Inspur Cup China Collegiate Computer Design Contest (Yunnan)"
+        - "[Provincial · 3rd Prize] Blue Bridge Cup Software and IT Talent Contest"
+    - year: 2024
+      items:
+        - "[National · 3rd Prize] National College Student English Translation Contest (college track)"
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: Languages
+      items:
+        - Python, C / C++, R, TypeScript / JavaScript
+        - LaTeX
+    - title: Research tooling
+      items:
+        - SAT / MaxSAT — PySAT, MaxHS, WMaxCDCL, OpenWBO, CaDiCaL, RoundingSAT
+        - SMT / ILP — Z3, CPLEX
+        - Benchmarking — SLURM job management, custom batch runners
+    - title: Engineering
+      items:
+        - Web — Astro, Express, Vue, Node.js, Redis
+        - Data — Pandas, NumPy, SciPy, ggplot2, NetworkX

@@ -1,0 +1,120 @@
+---
+---
+
+@string{aaai = {AAAI Conference on Artificial Intelligence}}
+@string{ijcai = {International Joint Conference on Artificial Intelligence}}
+@string{jair = {Journal of Artificial Intelligence Research}}
+@string{ecai = {European Conference on Artificial Intelligence}}
+@string{cp = {International Conference on Principles and Practice of Constraint Programming}}
+@string{sat = {International Conference on Theory and Applications of Satisfiability Testing}}
+@string{wine = {Conference on Web and Internet Economics}}
+@string{mor = {Mathematics of Operations Research}}
+
+% ==============================================================
+%  Under Review / Working Papers (most recent first)
+% ==============================================================
+
+@article{yang2026diversesat,
+  abbr      = {Under Review},
+  title     = {{DiverseSAT}: Finding $k$ Diverse Satisfying Assignments via Threshold Encodings and Incremental Solving},
+  author    = {Yangli, Zhengling and others},
+  journal   = {Under Review},
+  year      = {2026},
+  selected  = {true},
+  abstract  = {We study the problem of computing $k$ maximally diverse satisfying
+               assignments of a propositional formula, a setting with applications
+               to bounded model checking (e.g., all-zero / all-one witnesses) and
+               robust network path design. We propose two encodings --- Direct Weight
+               (DW) and Incremental Weight with incremental totalizer (IW) --- and
+               three search strategies (binary-lifting, binary-search, SAT-UNSAT),
+               together with a model-aware refinement that exploits partial
+               solutions. Experiments on 289 instances across 7 benchmark families
+               show that our approach consistently outperforms MaxSAT, Pseudo-Boolean
+               and CPLEX baselines.},
+  pdf       = {diverse-sat-draft.pdf},
+  note      = {Submitted to JAIR},
+  preview   = {project_diversesat.png}
+}
+
+@article{yang2026nlip,
+  abbr      = {Working Paper},
+  title     = {Encoding Non-linear Integer Programs into Weighted {MaxSAT}: A Systematic Study},
+  author    = {Yangli, Zhengling and others},
+  journal   = {Working Paper},
+  year      = {2026},
+  selected  = {true},
+  abstract  = {We investigate the encoding of non-linear integer programs (NLIP)
+               --- polynomial objectives and constraints over bounded integer
+               variables --- into weighted MaxSAT. Four encoding families are studied
+               (one-hot, unary, binary, and binary with order decomposition) and
+               evaluated on QPLIB (137), SMT-LIB QF\_NIA (2591) and Diverse-SAT (287)
+               benchmarks against Z3, CPLEX and CaDiCaL baselines. We identify when
+               MaxSAT-based encoding dominates and diagnose a fundamental limitation
+               of unary encoding at large domain sizes.}
+}
+
+@article{yang2026antqo,
+  abbr      = {Working Paper},
+  title     = {{Ant-Q}: A Lightweight Ant-Colony + {Q-Learning} Plug-in that Tightens Lower Bounds for Minimum Weight Dominating Set},
+  author    = {Yangli, Zhengling and others},
+  journal   = {Working Paper},
+  year      = {2026},
+  selected  = {true},
+  abstract  = {Building on the Dual-Bound Search (DBS) framework of the ECAI 2025
+               baselines Dual-Deep and Dual-Fast, we plug a $K$-ant Ant-Q module
+               into the LB-side pair construction of {\tt ibmwds\_init\_bounds},
+               without touching the UB search. The resulting variants Deep-v6 and
+               Fast-v19 reduce the row-averaged gap by 23.68\%/31.23\% (T1/T2) on
+               Deep and by 6.92\%/9.89\% (T1/T2) on Fast, with instance-level win
+               rates up to 99.37\%. A central finding is the asymmetry between gap
+               and \#opt: tightening LB alone does not shrink UB unless it
+               triggers hard reduction rules.},
+  note      = {Built on ECAI-2025 baselines}
+}
+
+@article{yang2026fairmt,
+  abbr      = {Working Paper},
+  title     = {Beyond {DRF-MT}: Group-Level Differentiation for Fair and Efficient Multi-Resource Allocation under Meta-Type Accessibility},
+  author    = {Yangli, Zhengling and others},
+  journal   = {Working Paper},
+  year      = {2026},
+  abstract  = {DRF-MT (Yin et al., IJCAI 2021) guarantees share-incentive,
+               envy-freeness, Pareto-optimality and strategy-proofness, but forces
+               all active tenants to share the same dominant share $y$ within each
+               elimination round. We propose UNB-MT, which partitions tenants by
+               dominant meta-type into a majority and minority group, compresses the
+               majority at a tunable $y_{\text{base}}$, and lets the minority grow
+               further via DRF-MT on residual resources. We prove SI, intra-group EF
+               and minority-to-majority EF, and show +2\%--6\% average social welfare
+               gain over DRF-MT on meta-type benchmarks. We also analyze why a
+               linear EF sufficient condition derived from Lemma 2 is too loose under
+               partial access, and discuss a cutting-plane alternative.}
+}
+
+@article{yang2026mathrag,
+  abbr      = {Working Paper},
+  title     = {{MathRAG}: A Retrieval-Augmented Pipeline for Step-wise Mathematical Problem Solving},
+  author    = {Yangli, Zhengling and others},
+  journal   = {Working Paper},
+  year      = {2026},
+  abstract  = {MathRAG is a retrieval-augmented mathematical QA system that couples
+               a math-aware retriever with a Qwen2-Math backbone and a step-wise
+               verification layer. The system reaches $\sim$94\% on GSM8K and
+               $\sim$89\% on MATH; we report a reproducible pipeline spanning
+               problem comprehension, LaTeX-preserving retrieval, chain-of-thought
+               generation and step-level answer validation, together with a
+               lightweight web application (Vue frontend, Node.js + Redis backend).}
+}
+
+% ==============================================================
+%  Reports / Course Projects (for CV reference)
+% ==============================================================
+
+@techreport{yang2025meituan,
+  abbr    = {Report},
+  title   = {Competitive Dynamics of the {Kunming} Coffee Delivery Market: A Quantitative Analysis of Meituan, {Ele.me} and {JD} Miaosong},
+  author  = {Yangli, Zhengling},
+  year    = {2025},
+  institution = {Yunnan University},
+  type    = {Undergraduate Research Project}
+}

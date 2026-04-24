@@ -1,0 +1,237 @@
+# -----------------------------------------------------------------------------
+# Site settings
+# -----------------------------------------------------------------------------
+
+title: Zhengling Yangli's Homepage  # the website title (if blank, full_name will be used instead)
+first_name: Zhengling
+middle_name:
+last_name: Yangli
+email: ylzl@mail.ynu.edu.cn
+description: >
+  Undergraduate at School of Mathematics and Statistics, Yunnan University.
+  Research on SAT / MaxSAT solving, combinatorial optimization, and fair resource allocation.
+footer_fixed: true
+
+# The `>` after `description:` means to ignore line-breaks until next key.
+# If you want to omit the line-break after the end of text, use `>-` instead.
+
+# Google Analytics ID (optional)
+google_analytics:
+# Google Tag Manager ID (optional)
+google_tag_manager:
+
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: # The site-wide (default for fallback) Open Graph preview image
+
+# RSS Feed settings
+rss_icon: true
+
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+icon: ☕ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+
+url: https://zhenglingyangli.github.io  # the base hostname & protocol for your site
+baseurl:                                # the subpath of your site, e.g. /blog/
+last_updated: false                     # set to true if you want to display last updated in the footer
+impressum_path:                         # set to path to include impressum link in the footer, use the same path as permalink in a page
+
+# -----------------------------------------------------------------------------
+# Theme
+# -----------------------------------------------------------------------------
+
+# text highlighter theme, can find more here: https://pygments.org/styles/
+highlight_theme_light: github       # light theme, select from https://github.com/jwarby/jekyll-pygments-themes
+highlight_theme_dark: native        # dark theme, select from https://github.com/jwarby/jekyll-pygments-themes
+
+repo_theme_light: default           # GitHub Card theme, select from https://github.com/anuraghazra/github-readme-stats#themes
+repo_theme_dark: dark               # GitHub Card theme, select from https://github.com/anuraghazra/github-readme-stats#themes
+
+# -----------------------------------------------------------------------------
+# RSS Feed
+# -----------------------------------------------------------------------------
+# will use title and description as fallback
+rss_description:
+
+# -----------------------------------------------------------------------------
+# Layout
+# -----------------------------------------------------------------------------
+
+navbar_fixed: true
+footer_fixed: true
+
+# Dimensions
+max_width: 800px
+
+# TODO: add layout settings (single page vs. multi-page)
+
+# -----------------------------------------------------------------------------
+# Open Graph & Schema.org
+# -----------------------------------------------------------------------------
+# Display links to the page with a thumbnail image and description.
+
+# Produce schema.org output in json-ld format for SEO
+# Note: you must have serve_schema_org enabled above.
+serve_schema_org: true
+
+# If you have a Google Scholar ID, you can link to it in the schema.org / OG meta.
+# scholar_userid:                 # your Google Scholar user ID
+
+# -----------------------------------------------------------------------------
+# Profile
+# -----------------------------------------------------------------------------
+
+latest_updates: true                # Show "latest updates" on the home page
+latest_updates_scrollable: true     # Adds a height constraint with scrolling to updates
+latest_updates_limit: 5             # Max number of news items to show
+
+news: true                          # Enable or disable the news section
+news_count: 5                       # Max number of news items to show
+news_limit: 5                       # Synonym for news_count
+news_scrollable: true               # Adds a height constraint with scrolling to news
+
+announcements: false                # Disable banner announcements
+
+selected_papers: true               # Show selected papers section
+social: true                        # Show social icons on profile
+show_social_icons: true             # (synonym) show social icons on profile
+
+# -----------------------------------------------------------------------------
+# Blog
+# -----------------------------------------------------------------------------
+
+blog_name: Zhengling's Blog             # your blog must have a name for it to work
+blog_description: notes on research, reading, and life
+permalink: /blog/:year/:title/
+lsi: false                              # Produce an index for related posts. Requires the classifier-reborn plugin.
+                                        # Set to true if you wish to recommend related content
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 10
+
+# Comments
+disqus_shortname:               # put your disqus shortname
+giscus:
+  repo:                         # <username>/<repository>
+# External services
+external_services:
+  disqus_shortname:
+  # The Google Scholar CSE ID
+  # google_analytics: ""
+
+# Share
+scribd:                         # Scribd ID (if applicable)
+discussions: false              # enable discussion at the bottom of post, set false to disable
+
+related_blog_posts:
+  enabled: false                 # disable related blog posts
+
+# -----------------------------------------------------------------------------
+# Collections
+# -----------------------------------------------------------------------------
+
+collections:
+  news:
+    defaults:
+      layout: post
+    output: true
+    permalink: /news/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+news_limit: 5
+
+# Jekyll collections settings
+jekyll-archives:
+  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+  layouts:
+    year: archive-year
+    tag: archive-tag
+    category: archive-category
+  permalinks:
+    year: '/blog/:year/'
+    tag: '/blog/tag/:name/'
+    category: '/blog/category/:name/'
+
+display_tags: ["research", "reading", "misc"]          # these tags will be displayed on the front page of your blog
+display_categories: ["research", "competition", "life"]
+
+# -----------------------------------------------------------------------------
+# Jekyll Scholar
+# -----------------------------------------------------------------------------
+
+scholar:
+
+  last_name: [Yangli]
+  first_name: [Zhengling]
+
+  style: apa
+  locale: en
+
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  # Note: if you have latex math in your bibtex, the latex filter
+  # preserves $ ... $ blocks. For Liquid variables you'd need escape.
+
+  replace_strings: true
+  join_strings: true
+
+  details_dir: bibliography
+  details_layout: bibtex.html
+  details_link: Details
+
+  query: "@*"
+  group_by: year
+  group_order: descending
+
+  sort_by: year,month
+  order: descending, descending
+
+  bibtex_filters: [latex, smallcaps, superscript]
+
+# Display different badges between publications (altmetric, dimensions, etc.)
+enable_publication_badges:
+  altmetric: false
+  dimensions: false
+  google_scholar: false
+  semantic_scholar: false
+
+# Display thumbnails on the publication page
+enable_publication_thumbnails: true
+
+# -----------------------------------------------------------------------------
+# Responsive WebP Images
+# -----------------------------------------------------------------------------
+imagemagick:
+  enabled: false
+
+# -----------------------------------------------------------------------------
+# Jekyll Minifier
+# -----------------------------------------------------------------------------
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+
+# -----------------------------------------------------------------------------
+# Default Search Settings
+# -----------------------------------------------------------------------------
+search_enabled: true
+socials_in_search: true
+
+# -----------------------------------------------------------------------------
+# Optional Features
+# -----------------------------------------------------------------------------
+enable_google_analytics: false
+enable_panelbear_analytics: false
+enable_google_verification: false
+enable_bing_verification: false
+enable_masonry: true
+enable_math: true
+enable_tooltips: false
+enable_darkmode: true
+enable_navbar_social: false
+enable_project_categories: true
+enable_medium_zoom: true

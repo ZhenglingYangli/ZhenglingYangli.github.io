@@ -2,7 +2,7 @@
 layout: page
 title: MathRAG
 description: Retrieval-Augmented Step-wise Mathematical Problem Solving
-img: assets/img/project_mathrag.png
+img: assets/img/5.jpg
 importance: 5
 category: research
 related_publications: true

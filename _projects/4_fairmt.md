@@ -2,7 +2,7 @@
 layout: page
 title: UNB-MT — Beyond DRF-MT
 description: Group-Level Differentiation for Fair and Efficient Multi-Resource Allocation under Meta-Type Accessibility
-img: assets/img/project_fairmt.png
+img: assets/img/4.jpg
 importance: 4
 category: research
 related_publications: true

@@ -2,7 +2,7 @@
 layout: page
 title: Mindfulness × Wearables
 description: Quantifying the Effect of Mindfulness Meditation on College Student Mental Health via EEG Wearables
-img: assets/img/project_mindfulness.png
+img: assets/img/7.jpg
 importance: 7
 category: applied
 ---

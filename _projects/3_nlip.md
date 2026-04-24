@@ -2,7 +2,7 @@
 layout: page
 title: NLIP via MaxSAT
 description: Encoding Non-linear Integer Programs into Weighted MaxSAT
-img: assets/img/project_nlip.png
+img: assets/img/3.jpg
 importance: 3
 category: research
 related_publications: true

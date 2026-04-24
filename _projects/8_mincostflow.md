@@ -2,7 +2,7 @@
 layout: page
 title: Min-Cost Flow for Supply Chain
 description: Graph-theoretic Supply-Demand Allocation Using Minimum-Cost Network Flow
-img: assets/img/project_mincostflow.png
+img: assets/img/8.jpg
 importance: 8
 category: applied
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: DiverseSAT
 description: Finding $k$ Maximally Diverse Satisfying Assignments via Threshold Encodings
-img: assets/img/project_diversesat.png
+img: assets/img/2.jpg
 importance: 2
 category: research
 related_publications: true

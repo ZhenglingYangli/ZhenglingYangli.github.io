@@ -2,7 +2,7 @@
 layout: page
 title: Kunming Coffee-Delivery Market
 description: Survival Strategies for New Entrants under a Tri-Platform Competitive Landscape (Meituan / Ele.me / JD Miaosong)
-img: assets/img/project_meituan.png
+img: assets/img/6.jpg
 importance: 6
 category: applied
 ---

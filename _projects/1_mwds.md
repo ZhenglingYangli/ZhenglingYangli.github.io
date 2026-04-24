@@ -2,7 +2,7 @@
 layout: page
 title: Ant-Q for MWDS
 description: A Lightweight Ant-Colony + Q-Learning Plug-in that Tightens Lower Bounds in Dual-Bound Search
-img: assets/img/project_mwds.png
+img: assets/img/1.jpg
 importance: 1
 category: research
 related_publications: true

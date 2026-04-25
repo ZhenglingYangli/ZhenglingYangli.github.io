@@ -1,28 +1,28 @@
 ---
 layout: page
-title: Kunming Coffee-Delivery Market
-description: Survival Strategies for New Entrants under a Tri-Platform Competitive Landscape (Meituan / Ele.me / JD Miaosong)
+title: 昆明咖啡外卖市场
+description: 三平台竞争格局下新入局商户的生存策略（美团 / 饿了么 / 京东秒送）
 img: assets/img/6.jpg
 importance: 6
 category: applied
 ---
 
-## Context
+## 背景
 
-A data-driven research project on the **Kunming coffee-delivery market** (Wuhua District), covering three major platforms: **Meituan**, **Ele.me**, and **JD Miaosong**. The goal is to identify viable survival strategies for new-entrant merchants under the competitive dynamics of the three-platform ecosystem.
+一项以**昆明咖啡外卖市场**（五华区）为对象的数据驱动研究项目，覆盖三个主流平台：**美团**、**饿了么**、**京东秒送**。研究目标是在三平台共生的竞争格局下，识别新入局商户的可行生存策略。
 
-## Pipeline
+## 管线
 
-Data crawling → cleaning → descriptive statistics → exploratory analysis → text analysis → visualization.
+数据爬取 → 清洗 → 描述统计 → 探索性分析 → 文本分析 → 可视化。
 
-## Stack
+## 技术栈
 
-- **Python**: Selenium, Pandas, NumPy, BeautifulSoup4, jieba, SciPy
-- **R**: ggplot2 for advanced visualizations
+- **Python**：Selenium、Pandas、NumPy、BeautifulSoup4、jieba、SciPy
+- **R**：ggplot2 用于进阶可视化
 
-## Deliverables
+## 产出
 
-- Cleaned merchant-level dataset across three platforms
-- Text-mining of user reviews (jieba-based tokenization + sentiment)
-- Final report with charts on pricing dynamics, category crowding and review themes
-- Actionable strategy recommendations for new entrants
+- 三平台清洗后的商户级数据集；
+- 用户评论的文本挖掘（jieba 分词 + 情感分析）；
+- 包含价格动态、品类拥挤度、评论主题分布等图表的最终报告；
+- 对新入局商户的可执行策略建议。

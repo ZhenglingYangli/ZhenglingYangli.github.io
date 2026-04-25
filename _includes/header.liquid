@@ -43,7 +43,7 @@
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
           {% assign current_is_zh = false %}
-          {% if page.url contains '/zh/' or page.url == '/zh' %}
+          {% if page.url contains '/zh/' or page.url == '/zh' or page.lang == 'zh' %}
             {% assign current_is_zh = true %}
           {% endif %}
           {% for p in site.pages %}
@@ -133,18 +133,23 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          <!-- Language switcher -->
-          {% if current_is_zh %}
-            {% assign lang_target = page.url | replace: '/zh/', '/' %}
-            {% if lang_target == '' %}{% assign lang_target = '/' %}{% endif %}
+          <!-- Language switcher: only meaningful on About; on Chinese-only pages it links back to EN About -->
+          {% if page.permalink == '/zh/' %}
+            {% assign lang_target = '/' %}
             {% assign lang_label = 'EN' %}
-          {% else %}
+            {% assign show_lang_switch = true %}
+          {% elsif page.permalink == '/' %}
             {% assign lang_target = '/zh/' %}
             {% assign lang_label = '中文' %}
+            {% assign show_lang_switch = true %}
+          {% else %}
+            {% assign show_lang_switch = false %}
           {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ lang_target | relative_url }}">{{ lang_label }}</a>
-          </li>
+          {% if show_lang_switch %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ lang_target | relative_url }}">{{ lang_label }}</a>
+            </li>
+          {% endif %}
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">

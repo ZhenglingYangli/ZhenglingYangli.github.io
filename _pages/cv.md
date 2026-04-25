@@ -1,9 +1,10 @@
 ---
 layout: page
 permalink: /cv/
-title: cv
-description: Curriculum Vitae of Zhengling Yangli. <a href="/assets/pdf/cv.pdf">PDF version</a>.
+title: 简历
+description: 杨黎政龄的个人简历。<a href="/assets/pdf/cv.pdf">PDF 版本</a>。
 nav: false
+lang: zh
 ---
 
 {% for section in site.data.cv %}

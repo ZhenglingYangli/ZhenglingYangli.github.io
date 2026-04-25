@@ -8,9 +8,9 @@ permalink: /zh/life/
 lang: zh
 children:
   - title: 动态
-    permalink: /zh/life-news/
+    permalink: /life-news/
   - title: 书架
-    permalink: /zh/books/
+    permalink: /books/
   - title: 观点
-    permalink: /zh/opinions/
+    permalink: /opinions/
 ---

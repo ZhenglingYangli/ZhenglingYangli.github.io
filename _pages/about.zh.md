@@ -2,8 +2,9 @@
 layout: about
 title: 关于
 permalink: /zh/
+lang: zh
 subtitle: >
-  本科生 @ <a href='https://www.ynu.edu.cn/'>云南大学</a> · 统计学
+  云南大学 统计学 本科生 · 2024 级
   <br/>
   组合优化 · SAT / MaxSAT · 公平资源分配
   <br/>
@@ -26,24 +27,17 @@ selected_papers: true
 social: true
 ---
 
-你好，我是 **杨李正凌** (Zhengling Yangli)。
+你好，我是 **杨李正凌**（Zhengling Yangli），目前在 [云南大学数学与统计学院](https://www.ynu.edu.cn/) 读统计学（2024 级本科）。
 
-我目前就读于 [云南大学数学与统计学院](https://www.ynu.edu.cn/) 统计学专业（2024 级本科）。
+我喜欢做这一类问题：**理论结构干净，但实验空间足够大** —— 大多落在带硬组合内核的离散优化里（SAT、MaxSAT、支配集、公平分配）。我的方法风格是 *phenomenon-driven* —— 从一个具体的实验异常出发，先把第一性原理层面的机制说清楚，再设计下一步干预。
 
-我的研究兴趣位于 **组合优化、布尔可满足性 (SAT / MaxSAT) 与算法公平性** 的交叉地带。我倾向于设计**理论保证清晰、实验表现具备竞争力**的算法。目前的工作主要有四条线：
+#### 现在在做的几件事
 
-- **SAT / MaxSAT 多样性模型枚举** — 在 CNF 公式上寻找 $k$ 个差异最大化的满足解，基于 `DW`、`IW` 阈值编码，配合 binary-lifting / binary-search / SAT-UNSAT 三种搜索策略。
-- **非线性整数规划到 MaxSAT 的编码** — 把 `QPLIB` / `SMT-LIB QF_NIA` 形式下的多项式整数规划编码为加权 MaxSAT（`OH` / `UNA` / `BIN` / Order-Decomposition 四种方案），与 `Z3`、`CPLEX` 等强基线对比。
-- **最小加权支配集 (MWDS)** — 在 ECAI 2025 基线 `Dual-Deep` / `Dual-Fast` 的 Dual-Bound Search 框架中插入一个 Ant-Q (`ACO + Q-Learning`) 模块，显著收紧迭代下界。
-- **多资源公平分配** — 将 `DRF-MT` (IJCAI 2021) 通过 `UNB` 思想扩展至 meta-type 场景下，追求在保持 Share-Incentive 与组内 Envy-Freeness 的同时提升社会福利。
+- **(Max)SAT 多样性模型枚举**：在 CNF 公式上找 $k$ 个差异最大化的满足解，使用阈值编码（`DW` / `IW`），三种搜索策略（binary-lifting / binary-search / SAT-UNSAT）。[→ 项目页]({{ '/projects/2_diversesat/' | relative_url }})
+- **非线性整数规划 → MaxSAT 编码**：把 `QPLIB` 与 `SMT-LIB QF_NIA` 的多项式整数规划，转成加权 MaxSAT（`OH` / `UNA` / `BIN` / Order-Decomposition 四种方案），在 `Z3` / `CPLEX` 等强基线下评测。[→ 项目页]({{ '/projects/3_nlip/' | relative_url }})
+- **用 Ant-Q 强化 MWDS 下界**：把一个 `ACO + Q-Learning` 模块插进 ECAI 2025 基线 `Dual-Deep` / `Dual-Fast` 的 Dual-Bound Search 的 LB 端，relative gap 在 Deep 上下降 23.7%–31.2%。[→ 项目页]({{ '/projects/1_mwds/' | relative_url }})
+- **部分访问下的公平多资源分配**：在 `DRF-MT`（IJCAI 2021）基础上加入 `UNB` 机制，在保持 share-incentive 与组内 envy-freeness 的同时追求更高的社会福利。[→ 项目页]({{ '/projects/4_fair-ratio/' | relative_url }})
 
-我信奉的原则是：**研究始于干净的问题陈述，终于可复现的实验**。具体方法上，我偏好 *phenomenon-driven* 的风格 —— 从一个实验异常开始（比如：为什么 Ant-Q 提升了 LB 却不改善 `#opt`？），构建一个第一性原理层面的机制解释（LB → UB 的耦合必须经过硬证明规则），再设计下一个干预实验。
+我也会在 [过程思考]({{ '/notes/' | relative_url }}) 里诚实记录走过的弯路 —— 那些没走通的尝试通常是我学得最多的部分。
 
-# 研究兴趣
-
-- SAT / MaxSAT 求解、约束求解、组合优化
-- 多样性与枚举问题
-- 资源分配的算法公平性与机制设计
-- 实证算法研究：实验设计、统计分析、基准测试
-
-与我联系的最好方式是邮件。我欢迎合作，也很乐意讨论新的研究想法。
+联系我最稳定的方式是邮件，欢迎合作或讨论想法。

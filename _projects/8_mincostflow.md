@@ -1,24 +1,24 @@
 ---
 layout: page
-title: Min-Cost Flow for Supply Chain
-description: Graph-theoretic Supply-Demand Allocation Using Minimum-Cost Network Flow
+title: 供应链最小费用流
+description: 用最小费用网络流做供需分配
 img: assets/img/8.jpg
 importance: 8
 category: applied
 ---
 
-## Problem
+## 问题
 
-Given $m$ warehouses and $n$ stores with per-unit transport costs, dispatch inventory to minimize total cost subject to supply and demand constraints.
+给定 $m$ 个仓库与 $n$ 家门店及单位运费矩阵，在满足供给与需求的前提下最小化总运输成本。
 
-## Approach
+## 方法
 
-Model as a **minimum-cost flow** problem on a bipartite graph, solve via NetworkX's polynomial-time algorithm, and visualize both the flow network and a cost heatmap.
+把问题建模为二部图上的**最小费用流**，调用 NetworkX 的多项式时间算法求解，并对流网络与运费热力图做可视化。
 
-## Case Study
+## 案例
 
-A **3-warehouse × 4-store** instance reached the optimal total cost of **¥7600**. The implementation supports arbitrary $(m, n)$ and produces publication-ready visualizations (`networkx`, `matplotlib`, `seaborn`).
+一个 **3 仓库 × 4 门店** 的实例最优总成本 **¥7600**。代码支持任意 $(m, n)$ 规模，输出可发表级别的可视化（`networkx`、`matplotlib`、`seaborn`）。
 
-## Stack
+## 技术栈
 
-Python 3.8+, NetworkX, NumPy, Matplotlib, Seaborn, Pandas.
+Python 3.8+、NetworkX、NumPy、Matplotlib、Seaborn、Pandas。

@@ -1,44 +1,51 @@
 ---
 layout: page
 title: NLIP via MaxSAT
-description: Encoding Non-linear Integer Programs into Weighted MaxSAT
+description: 把非线性整数规划编码到加权 MaxSAT
 img: assets/img/3.jpg
 importance: 3
 category: research
 related_publications: true
 ---
 
-## Problem
+## 问题
 
-**Non-linear Integer Programming (NLIP).** Given polynomial objective and constraints over bounded integer variables, find an optimal integer assignment. The problem generalizes QP, QIP, and polynomial arithmetic constraints (SMT-LIB `QF_NIA`).
+**非线性整数规划（NLIP）** —— 在 bounded integer 变量上，多项式目标与多项式约束下找最优整数解。这个问题统一了 QP、QIP 以及 SMT-LIB `QF_NIA` 上的 polynomial arithmetic 约束。
 
-## Approach
+## 思路
 
-We encode NLIP into **weighted MaxSAT** (WCNF) and leverage modern MaxSAT solvers. Four encoding families are studied:
+把 NLIP 编码为**加权 MaxSAT**（WCNF），借助现代 MaxSAT 求解器。我们研究四种编码家族：
 
-| Encoding | Domain representation                     | Strength                                |
-| -------- | ----------------------------------------- | --------------------------------------- |
-| OH       | One-hot — one Boolean per integer value   | Linear in domain, strong propagation    |
-| UNA      | Unary / thermometer                       | Clean ordering, but fails at large domain |
-| BIN      | Binary — $\log_2 D$ Booleans per variable | Compact but weaker propagation          |
-| DECOMP   | Binary + order decomposition              | Compact + improved propagation          |
+| 编码     | 域表示                                  | 强项                                   |
+| -------- | --------------------------------------- | -------------------------------------- |
+| OH       | One-hot —— 每个整数值一个布尔            | 域线性, propagation 强                  |
+| UNA      | Unary / thermometer                     | 顺序结构干净；大域下崩溃                 |
+| BIN      | Binary —— 每变量 $\log_2 D$ 个布尔        | 紧凑但 propagation 弱                    |
+| DECOMP   | Binary + Order Decomposition            | 紧凑且 propagation 改善                  |
 
-Solvers wrapped: RC2 (PySAT), MaxHS, WMaxCDCL, OpenWBO, CaDiCaL (brute enumeration baseline). Baselines: **Z3** (SMT on `QF_NIA`) and **CPLEX** (for degree-$\le$2 instances only).
+封装的求解器：RC2 (PySAT)、MaxHS、WMaxCDCL、OpenWBO、CaDiCaL（暴力枚举 baseline）。
+对照基线：**Z3**（SMT 直接求 `QF_NIA`）以及 **CPLEX**（仅在 degree ≤ 2 实例上）。
 
-## Benchmarks
+## Benchmark
 
-| Source       | Size   | Kind                                   |
-| ------------ | ------ | -------------------------------------- |
-| QPLIB        | 137    | quadratic / non-linear integer programs |
-| SMT-LIB QF_NIA | 2591 | non-linear integer arithmetic          |
-| Diverse-SAT  | 287    | converted SAT instances                |
+| 来源              | 规模 | 类型                                |
+| ----------------- | ---- | ----------------------------------- |
+| QPLIB             | 137  | quadratic / 非线性整数规划            |
+| SMT-LIB QF_NIA    | 2591 | 非线性整数算术                       |
+| Diverse-SAT 转换  | 287  | 转化的 SAT 实例                      |
 
-A five-library filtering pipeline (`NLIP_filters`) over QPLIB / NL / SMT / CSPlib / XCSP extracts NLIP-shaped problems; parsers (`qplib_parser`, `smt2_parser`) ingest them; `main.py` performs preprocessing + encoding + solver call, producing a standardized `>>>` summary line per instance. A SLURM-friendly `goSolver.py` drives batch experiments with a 7200 s timeout and 7500 s external SIGKILL bound.
+一个五库过滤管线（`NLIP_filters`）从 QPLIB / NL / SMT / CSPlib / XCSP 中抽取符合 NLIP 形态的问题；解析器 `qplib_parser` 与 `smt2_parser` 负责导入；`main.py` 串起 preprocessing + encoding + solver call，每个实例输出一行标准化的 `>>>` 摘要。`goSolver.py` 配合 SLURM 调度批量实验，统一 7200s timeout，外置 7500s SIGKILL bound。
 
-## Findings so far
+## 当前发现
 
-- OH is dominant on small-domain instances; BIN + DECOMP becomes competitive when domains grow.
-- UNA has a documented **scaling failure**: propagation collapses for domain size $> 64$.
-- MaxHS + OH beats CPLEX on a subset of QPLIB instances where the quadratic structure is sparse.
+- **OH** 在小域问题上占优；**BIN + DECOMP** 在大域问题上反超。
+- **UNA** 有可复现的 scaling 失败：propagation 在域大小 $> 64$ 时崩溃。
+- 在 QPLIB 上，sparse quadratic 子集里 **MaxHS + OH 在若干实例上击败了 CPLEX**。
 
-Writeup is in progress.
+## 早期踩过的坑
+
+第一份 BIN encoding 我把整数变量当 unsigned 编了，但 QPLIB 里有些变量下界是负的 —— partial-product 没做 Booth recoding，乘法整体偏大。详见 [NLIP encoding 第一次错误]({{ '/blog/2026/nlip-encoding-first-mistake/' | relative_url }})。
+
+## 现状
+
+写作中。

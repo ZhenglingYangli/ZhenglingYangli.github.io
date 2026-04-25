@@ -8,9 +8,9 @@ permalink: /zh/research/
 lang: zh
 children:
   - title: 科研项目
-    permalink: /zh/projects/
+    permalink: /projects/
   - title: 论文发表
-    permalink: /zh/publications/
+    permalink: /publications/
   - title: 过程思考
-    permalink: /zh/notes/
+    permalink: /notes/
 ---

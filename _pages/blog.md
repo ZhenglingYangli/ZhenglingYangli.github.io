@@ -1,8 +1,9 @@
 ---
 layout: default
 permalink: /blog/
-title: blog
+title: 博客
 nav: false
+lang: zh
 pagination:
   enabled: true
   collection: posts

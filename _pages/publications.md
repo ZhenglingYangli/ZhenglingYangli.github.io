@@ -1,9 +1,10 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
-description: Publications and preprints (newest first). The * marks papers where I am (or will be) a contributing author.
+title: 论文发表
+description: 论文与预印本（按时间倒序）。带 * 的条目为我作为贡献作者参与（或将参与）的工作。
 nav: false
+lang: zh
 ---
 
 <!-- _pages/publications.md -->

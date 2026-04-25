@@ -135,66 +135,66 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/opinions/";
               },
-            },{id: "post-lb-紧了-30-opt-却没动-我才明白指标不是同质的",
+            },{id: "post-dual-bound-search-中-lb-数值收紧与-opt-的脱耦",
         
-          title: "LB 紧了 30%，#opt 却没动 —— 我才明白指标不是同质的",
+          title: "Dual-Bound Search 中 LB 数值收紧与 #opt 的脱耦",
         
-        description: "AntQO 在 ECAI-2025 基线上的一个困惑：把 Ant-Q 插进 LB 端之后，relative gap 一路下跌（Deep 上 −23.7% 至 −31.2%），但 #opt / #min 却几乎不动。一开始我以为是 bug，后来才意识到这是 Dual-Bound Search 框架的结构性属性。",
+        description: "在 ECAI 2025 基线 Dual-Deep / Dual-Fast 上插入 Ant-Q 后，relative gap 普遍下降 23.7%–31.2% (Deep)，但 #opt 与 #min 几乎不动。这一现象不是 bug，而来自 Dual-Bound Search 框架中 LB 与 UB 之间唯一的耦合通道：硬证明规则。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/lb-ub-coupling-mwds/";
           
         },
-      },{id: "post-为什么我从纯数学转向了-maxsat-求解",
+      },{id: "post-从代数几何到-maxsat-求解-研究兴趣转向的若干背景",
         
-          title: "为什么我从纯数学转向了 MaxSAT 求解",
+          title: "从代数几何到 MaxSAT 求解：研究兴趣转向的若干背景",
         
-        description: "本科第一年我一直以为我会做几何 / 数论。一年后我决定把研究主线挪到 SAT/MaxSAT 上。这是我对自己的一份解释。",
+        description: "记录一段研究兴趣的转向过程：从最初的代数几何 / Galois cohomology 偏好，到目前的组合优化与 MaxSAT 求解。这种转向并非取代关系，而是观察到 closed system 与 open system 在研究反馈结构上的不同后所做的方向调整。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/why-i-switched-from-pure-math-to-maxsat/";
           
         },
-      },{id: "post-antqo-v1-我以为-rl-加了稳赚不赔-结果在-udg-上掉了点",
+      },{id: "post-在结构规则的-mwds-实例上-ant-q-探索带来的负迁移",
         
-          title: "AntQO v1：我以为 RL 加了稳赚不赔，结果在 UDG 上掉了点",
+          title: "在结构规则的 MWDS 实例上 Ant-Q 探索带来的负迁移",
         
-        description: "Ant-Q 在大多数 MWDS 实例上都能找到比贪心更好的下界。但在 UDG（unit disk graph）这种结构很规则的实例上，探索反而把好序列扰乱掉了。这个负结果让我学会了一件事：探索是有成本的。",
+        description: "Ant-Q 在大多数 MWDS 实例上能改善贪心 LB 排序的质量，但在 unit disk graph 一类几何规则的实例上，引入探索反而扰动了贪心已经接近最优的序，导致 #opt 与 gap 的双重退化。本文形式化讨论这一负迁移的来源，并给出 phase-aware 关闭策略的设计。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/antq-v1-uniform-rl-not-free-lunch/";
           
         },
-      },{id: "post-diversesat-不是奇怪的-toy-但我花了一年才能这么讲",
+      },{id: "post-diversesat-作为-source-problem-从-bmc-与冗余路径设计的两个归约",
         
-          title: "DiverseSAT 不是奇怪的 toy —— 但我花了一年才能这么讲",
+          title: "DiverseSAT 作为 source problem：从 BMC 与冗余路径设计的两个归约",
         
-        description: "曾经一个 reviewer 写：&#39;k 个最大化差异的满足解，这是一个真问题吗？&#39;当时我觉得他没读懂；后来我意识到他读得很懂，是我没把动机讲清楚。",
+        description: "Diverse SAT 不是 enumeration 的另一种形式，而是若干下游应用的统一上游问题。本文从 bounded model checking 与冗余 s-t 路径设计两个例子，说明把它表述为 &#39;k 个最大化差异的满足解&#39; 而非 &#39;k 个 SAT 解&#39; 的必要性。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/diversity-as-a-source-problem/";
           
         },
-      },{id: "post-我花了一个月相信一个-lemma-是对的-最后是它把我害了",
+      },{id: "post-pairef-auto-的-lp-公式拒绝一个已知公平的-allocation-lemma-2-在-partial-access-下的过度收紧",
         
-          title: "我花了一个月相信一个 Lemma 是对的，最后是它把我害了",
+          title: "PairEF-auto 的 LP 公式拒绝一个已知公平的 allocation：Lemma 2 在 partial-access 下的过度收紧",
         
-        description: "PairEF-auto 的死亡复盘：当一个已知公平的 published allocation 违反我自己的充分条件时，错的几乎一定是我，不是 published 的算法。",
+        description: "在多资源公平分配的 meta-type 设定下，由 Lemma 2 推出的线性 EF 充分条件，会拒绝一个 DRF-MT 自身产生的 envy-free 分配。本文形式化地说明这一现象，并讨论替代的 cutting-plane 方案。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/unb-mt-why-lemma-2-is-too-loose/";
           
         },
-      },{id: "post-我交给老师的第一份-nlip-编码方案是错的-关于-unsigned-vs-signed-的本科生-1a-错误",
+      },{id: "post-bin-encoding-中负数变量与-partial-product-的一个被忽略的细节",
         
-          title: "我交给老师的第一份 NLIP 编码方案是错的（关于 unsigned vs signed 的本科生 1A 错误）",
+          title: "BIN encoding 中负数变量与 partial-product 的一个被忽略的细节",
         
-        description: "把 x*y 编进 SAT 听起来很简单：把变量按二进制位拼起来做 partial-product，再 carry。我是这么写的，第一个 instance 就给出了错答案。",
+        description: "把整数变量按二进制位编入 SAT 时，partial-product 形式的乘法在变量取值有负下界时不能直接使用。本文说明这一问题在 QPLIB 一类 instance 上的具体表现，并给出基于 Booth recoding 的修正。",
         section: "Posts",
         handler: () => {
           
@@ -248,9 +248,9 @@ ninja.data = [{
           section: "News",},{id: "news-latest-milestone-on-the-mwds-project-deep-v6-and-fast-v19-ant-q-plug-ins-on-the-ecai-2025-baselines-reduce-the-row-averaged-lb-gap-by-23-7-31-2-on-deep-and-6-9-9-9-on-fast-across-two-test-suites-report-here",
           title: 'Latest milestone on the MWDS project: Deep-v6 and Fast-v19 (Ant-Q plug-ins on the...',
           description: "",
-          section: "News",},{id: "projects-ant-q-for-mwds",
-          title: 'Ant-Q for MWDS',
-          description: "用一个轻量的 Ant-Q（ACO + Q-Learning）插件，收紧 Dual-Bound Search 在 MWDS 上的下界",
+          section: "News",},{id: "projects-antqo-for-mwds",
+          title: 'AntQO for MWDS',
+          description: "在 Dual-Bound Search 框架的下界端引入轻量 Ant-Q 模块，收紧 MWDS 的 LB",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_mwds/";
             },},{id: "projects-diversesat",
@@ -263,9 +263,9 @@ ninja.data = [{
           description: "把非线性整数规划编码到加权 MaxSAT",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_nlip/";
-            },},{id: "projects-unb-mt-在-drf-mt-之上",
-          title: 'UNB-MT —— 在 DRF-MT 之上',
-          description: "多资源公平分配中按组差异化提升社会福利的尝试",
+            },},{id: "projects-unb-mt",
+          title: 'UNB-MT',
+          description: "在 DRF-MT 之上以 meta-type 维度差异化 dominant share 的扩展机制",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_fairmt/";
             },},{id: "projects-mathrag",

@@ -232,12 +232,34 @@ plugins:
   - jekyll-twitter-plugin
   - jemoji
 
-# Sitemap settings
+# Sitemap settings + default page language
 defaults:
   - scope:
       path: "assets"
     values:
       sitemap: false
+  # Default Chinese-primary site: posts and books inherit lang=zh.
+  # The About page (about.md) overrides this with `lang: en` in its front matter.
+  - scope:
+      path: ""
+      type: posts
+    values:
+      lang: zh
+  - scope:
+      path: ""
+      type: books
+    values:
+      lang: zh
+  - scope:
+      path: ""
+      type: news
+    values:
+      lang: zh
+  - scope:
+      path: ""
+      type: projects
+    values:
+      lang: zh
 
 sass:
   style: compressed

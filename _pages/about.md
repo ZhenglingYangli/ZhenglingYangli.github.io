@@ -6,6 +6,10 @@ subtitle: >
   Undergraduate Student @ <a href='https://www.ynu.edu.cn/'>YNU</a>.
   <br/>
   Statistics · Combinatorial Optimization · SAT & MaxSAT.
+  <br/>
+  <a class="btn btn-sm btn-outline-primary mt-2" href="{{ '/cv/' | relative_url }}">
+    <i class="fa-solid fa-file-lines"></i> Full CV
+  </a>
 
 profile:
   align: right
@@ -21,10 +25,6 @@ latest_posts: true
 selected_papers: true
 social: true
 ---
-
-<p style="text-align: right; font-size: 0.9em;">
-  <a href="/zh/">中</a> &nbsp;|&nbsp; <b>EN</b>
-</p>
 
 Hi, I am **Zhengling Yangli** (杨李正凌).
 

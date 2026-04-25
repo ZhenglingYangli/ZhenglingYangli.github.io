@@ -1,0 +1,84 @@
+{% comment %}
+  Renders one section of legacy `_data/cv.yml`.
+  Pass: include section=section_object [hide_title=true]
+{% endcomment %}
+
+<a class="anchor" id="{{ include.section.title | slugify }}"></a>
+<div class="card mt-3 p-3">
+  {% unless include.hide_title %}
+    <h3 class="card-title font-weight-medium">{{ include.section.title }}</h3>
+  {% endunless %}
+
+  {% case include.section.type %}
+  {% when 'map' %}
+    <table class="table table-sm table-borderless">
+      <tbody>
+        {% for c in include.section.contents %}
+          <tr>
+            <td class="p-1 pr-2 font-weight-bold" style="width: 30%;"><b>{{ c.name }}</b></td>
+            <td class="p-1 pl-2 font-weight-light">{{ c.value | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% when 'time_table' %}
+    <ul class="card-text font-weight-light list-group list-group-flush">
+      {% for entry in include.section.contents %}
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 text-center">
+              <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">
+                {{ entry.year }}
+              </span>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+              {% if entry.title %}
+                <h6 class="title font-weight-bold ml-1 ml-md-4">
+                  {{ entry.title }}
+                  {% if entry.institution %}
+                    <span class="font-weight-light" style="font-size: 0.9rem;"> — {{ entry.institution }}</span>
+                  {% endif %}
+                </h6>
+              {% endif %}
+              {% if entry.description %}
+                <ul class="ml-1 ml-md-4">
+                  {% for d in entry.description %}
+                    <li>{{ d | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              {% if entry.items %}
+                <ul class="ml-1 ml-md-4">
+                  {% for item in entry.items %}
+                    <li>{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% when 'nested_list' %}
+    {% for entry in include.section.contents %}
+      <h6 class="font-weight-bold mt-3">{{ entry.title }}</h6>
+      <ul class="card-text font-weight-light">
+        {% for item in entry.items %}
+          <li>{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+
+  {% when 'list' %}
+    <ul class="card-text font-weight-light">
+      {% for item in include.section.contents %}
+        <li>{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <p class="text-muted">Unknown section type: {{ include.section.type }}</p>
+  {% endcase %}
+</div>

@@ -6,6 +6,10 @@ subtitle: >
   本科生 @ <a href='https://www.ynu.edu.cn/'>云南大学</a> · 统计学
   <br/>
   组合优化 · SAT / MaxSAT · 公平资源分配
+  <br/>
+  <a class="btn btn-sm btn-outline-primary mt-2" href="{{ '/cv/' | relative_url }}">
+    <i class="fa-solid fa-file-lines"></i> 完整简历
+  </a>
 
 profile:
   align: right
@@ -21,10 +25,6 @@ latest_posts: true
 selected_papers: true
 social: true
 ---
-
-<p style="text-align: right; font-size: 0.9em;">
-  <b>中</b> &nbsp;|&nbsp; <a href="/">EN</a>
-</p>
 
 你好，我是 **杨李正凌** (Zhengling Yangli)。
 

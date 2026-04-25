@@ -7,14 +7,14 @@ first_name: Zhengling
 middle_name:
 last_name: Yangli
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email is the most reliable way to reach me. Replies usually within 24h on weekdays.
 description: >
   Undergraduate at School of Mathematics and Statistics, Yunnan University.
   Research on SAT / MaxSAT, combinatorial optimization, and fair resource allocation.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+  © 2026 Zhengling Yangli &middot;
+  Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> + <a href="https://github.com/alshedivat/al-folio">al-folio</a> &middot;
+  Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ☕ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -654,9 +654,10 @@ third_party_libraries:
 # Get external JSON data
 # -----------------------------------------------------------------------------
 
-jekyll_get_json:
-  - data: resume
-    json: assets/json/resume.json # it can also be an url
+# Disabled: we use the legacy `_data/cv.yml` format instead of JSONResume.
+# jekyll_get_json:
+#   - data: resume
+#     json: assets/json/resume.json
 
 jsonresume:
   - basics

@@ -42,15 +42,28 @@
 
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          {% for page in site.pages %}
-            {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
+          {% assign current_is_zh = false %}
+          {% if page.url contains '/zh/' or page.url == '/zh' %}
+            {% assign current_is_zh = true %}
+          {% endif %}
+          {% for p in site.pages %}
+            {% if current_is_zh and p.permalink == '/zh/' %}
+              {% assign about_title = p.title %}
+            {% elsif current_is_zh == false and p.permalink == '/' %}
+              {% assign about_title = p.title %}
+            {% endif %}
           {% endfor %}
+          {% if current_is_zh %}
+            {% assign about_href = '/zh/' %}
+          {% else %}
+            {% assign about_href = '/' %}
+          {% endif %}
 
           <!-- About -->
-          <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-            <a class="nav-link" href="{{ '/' | relative_url }}">
+          <li class="nav-item {% if page.permalink == about_href %}active{% endif %}">
+            <a class="nav-link" href="{{ about_href | relative_url }}">
               {{- about_title }}
-              {% if page.permalink == '/' %}
+              {% if page.permalink == about_href %}
                 <span class="sr-only">(current)</span>
               {% endif %}
             </a>
@@ -59,7 +72,10 @@
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
-            {% if p.nav and p.autogen == null %}
+            {% assign skip_lang = false %}
+            {% if current_is_zh and p.lang != 'zh' %}{% assign skip_lang = true %}{% endif %}
+            {% if current_is_zh == false and p.lang == 'zh' %}{% assign skip_lang = true %}{% endif %}
+            {% if p.nav and p.autogen == null and skip_lang == false %}
               {% if p.dropdown %}
                 {% assign has_active_child = false %}
                 {% for child in p.children %}
@@ -117,6 +133,18 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+          <!-- Language switcher -->
+          {% if current_is_zh %}
+            {% assign lang_target = page.url | replace: '/zh/', '/' %}
+            {% if lang_target == '' %}{% assign lang_target = '/' %}{% endif %}
+            {% assign lang_label = 'EN' %}
+          {% else %}
+            {% assign lang_target = '/zh/' %}
+            {% assign lang_label = '中文' %}
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ lang_target | relative_url }}">{{ lang_label }}</a>
+          </li>
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">

@@ -1,40 +1,61 @@
 ---
 layout: post
-title: "我交给老师的第一份 NLIP 编码方案是错的（关于 unsigned vs signed 的本科生 1A 错误）"
+title: "BIN encoding 中负数变量与 partial-product 的一个被忽略的细节"
 date: 2026-01-18 22:00:00
-description: "把 x*y 编进 SAT 听起来很简单：把变量按二进制位拼起来做 partial-product，再 carry。我是这么写的，第一个 instance 就给出了错答案。"
+description: "把整数变量按二进制位编入 SAT 时，partial-product 形式的乘法在变量取值有负下界时不能直接使用。本文说明这一问题在 QPLIB 一类 instance 上的具体表现，并给出基于 Booth recoding 的修正。"
 tags: research nlip maxsat encoding
 categories: research
 ---
 
-#### 时间线
+## 设置
 
-- 周三晚：导师让我尝试把 QPLIB 里一个小 quadratic program 编码成 weighted MaxSAT。
-- 周五下午：我交了第一版 BIN encoding（把整数变量按 binary bits 编，乘法用 partial-product + carry chain）。
-- 周五下午 16:30：跟 Z3 对比，**第一个 instance 的目标值就差了一截**。
+在 NLIP via MaxSAT 项目中，需要把多项式整数规划（QPLIB / SMT-LIB QF\_NIA）编码为加权 MaxSAT。我们考虑过四种编码（OH / UNA / BIN / Order-Decomposition），其中 *BIN encoding* 把每个整数变量 $x \\in [\\ell, u]$ 表示为 $\\lceil \\log_2 (u - \\ell + 1) \\rceil$ 位布尔，并通过 partial-product 与 carry chain 实现乘法。
 
-我一开始以为 Z3 的 nonlinear 模块跟我们的 reformulation 不等价。dump CNF、手算了一个 6-bit × 6-bit 的乘法，全对。
-也试过把 Z3 的 partial assignment 拿过来代回去 —— 它的解满足约束，我的解也满足约束，但目标值差了**符号**。
+BIN encoding 的常见实现假设 $x \\ge 0$，即变量按 *unsigned* 位形式表示。在 $\\ell < 0$ 的实例上，需要选择某种二进制补码或 sign–magnitude 表示，并在乘法步骤中相应处理符号。对此处理不当会在 $xy$ 项上引入符号错误，且这一错误并不在常规 sanity check 中被自然暴露。
 
-#### 我犯的错
+## 表现
 
-我把整数变量当 unsigned 编了，但 QPLIB 里有些变量的下界是负的。
+在 QPLIB 中规模较小的若干 quadratic instance 上，使用未做符号处理的 BIN encoding 跑通 RC2，并将所得 assignment 代入原始多项式目标，观察到与 Z3 / CPLEX 给出的最优解之间存在偏差。具体表现为：
 
-partial-product 这一步本身没错，错的是我没做 Booth recoding：当负数以 two's complement 表示，普通的 partial-product 会把它当成一个很大的正数处理，乘法结果整体偏大。CMU 编译/数字逻辑课里非常 1A 的内容，我以为我懂，写的时候没在意。
+- 对 $x \\ge 0$ 的 sub-instances，目标值与 Z3 完全一致；
+- 对至少一个变量 $x$ 满足 $\\ell < 0$ 的 instances，目标值系统性地偏大，偏差在原始多项式中能被定位到含 $xy$（其中至少一项可负）的子项。
 
-#### 为什么这件事让我有点沮丧
+把 partial-product 的 CNF dump 出来，逐位手算 6-bit × 6-bit 的乘积，正确性无误；进一步把 Z3 的 partial assignment 代回 SAT 模型，验证约束全部满足。这两点说明：CNF 编码本身在 $x \\ge 0$ 的语义下是正确的，问题出在 **变量符号约定** 与 **乘法子例程之间的接口**。
 
-我有数学背景，所以一开始的态度是「编码这种事，理解了变量域 + 一个 multiplication 怎么 lift 到 CNF 上，写起来就是一个工程问题」。结果是被一个本科 1A 课的细节卡了 8 个小时。
+## 错误的乘法实现
 
-我的真正错误不是 partial-product 算错，而是**把"我以为我懂"当成了"我会写"**。这之后我做了三件事：
+设变量 $x, y \\in [\\ell, u]$ 以二进制补码（two's complement）表示为
+$x = -2^{n-1} x_{n-1} + \\sum_{k=0}^{n-2} 2^k x_k$，则 $x \\cdot y$ 的正确二进制实现要么在乘积中使用符号扩展（sign extension），要么使用 Booth recoding 以避免逐位生成完整的 $2n$-bit partial product。
 
-1. 把每个 encoding 的正确性单独写一个最小测试集（5 个手算可验证的小 instance），跑通这个再投放到 benchmark 上。
-2. 在内部写了一份《encoding 选型表》—— 哪种编码在哪种问题结构下表现好（OH 适合 small-domain，UNA 在 cardinality 主导的约束上简单，BIN 适合 wide-domain 但要小心乘法 / 符号），不再追求一种"通吃"的方案。
-3. 重新读了一遍 Bryant 的 *Logic in Computer Science* 第 11 章 —— 这本书我大二上学期就买了，一直没翻完。
+我们最初的实现把 $x, y$ 当作 unsigned 处理：将 $x_k, y_k$ 直接相与得到 partial product $p_{ij} = x_i \\wedge y_j$，再按 $\\sum_{i,j} 2^{i+j} p_{ij}$ 累加。该实现对 $x, y \\ge 0$ 是正确的，但在 $x_{n-1} = 1$（即 $x < 0$，二进制补码下）时，最高位的权重应为 $-2^{n-1}$ 而非 $+2^{n-1}$；该负权重在 unsigned 实现里被静默地翻转。
 
-#### 写给将来的自己
+## 修正
 
-> 数学背景能让你想清楚问题，但不能替你跑通代码。
-> 写编码这种事，越是觉得 trivial 越要做最小测试。
+修正方案有两条等价路径：
 
-更新：现在的 BIN encoding 跑过了 60% 的 QPLIB 子集，对 binary variables 有更好的 LP relaxation 行为。OH/UNA/BIN/Order-Decomposition 四种方案的对比放到 [项目页]({{ '/projects/3_nlip/' | relative_url }}) 里。
+1. **Sign extension**：把 $x, y$ 各扩展为 $2n$-bit，令上 $n$ 位等于符号位 $x_{n-1}$（同样地 $y$），再做 unsigned partial product 累加。该方案概念清晰，但代价是 partial product 数量从 $n^2$ 增至 $4n^2$。
+2. **Booth recoding**（Booth, 1951）：把 $y$ 的 bit pair $\\langle y_{2k+1}, y_{2k}, y_{2k-1}\\rangle$ 映为 $\\{-2, -1, 0, +1, +2\\}$ 的乘子，乘到 $x$ 上后累加。该方案 partial product 数量为 $\\lceil n/2 \\rceil$，且天然处理负权重。
+
+我们最终采用 Radix-4 Booth recoding，配合 Wallace-tree 风格的累加。修正后，QPLIB 在 $\\ell < 0$ 的子集上 BIN encoding 的目标值与 Z3 一致。
+
+## 一些后续做的工程化处理
+
+在该 bug 之后，BIN encoding 的实现引入了三个常驻检查：
+
+- **最小自验证集**：每种编码维护一个含 5 条手算可验证小实例的 self-test，编码任何变更后必须通过；
+- **跨编码比对**：在 OH / UNA / BIN / DECOMP 之间建立同一 instance 的目标值比对脚本，发生不一致时报警；
+- **Solver 双向校验**：对小规模 instances，把 RC2 的 output assignment 同时送进 CPLEX 与 Z3 验算原始目标。
+
+这三项检查在后续的 BIN encoding 调优中先后捕获过两次符号相关的 regression，是事后看必要的工程化代价。
+
+## 引用
+
+```bibtex
+@misc{yangli2026binencoding,
+  title={BIN encoding 中负数变量与 partial-product 的一个被忽略的细节},
+  author={Yangli, Zhengling},
+  journal={Zhengling Yangli's Blog},
+  year={2026},
+  url={https://zhenglingyangli.github.io/blog/2026/nlip-encoding-first-mistake/}
+}
+```

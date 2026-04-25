@@ -1,45 +1,60 @@
 ---
 layout: post
-title: "为什么我从纯数学转向了 MaxSAT 求解"
+title: "从代数几何到 MaxSAT 求解：研究兴趣转向的若干背景"
 date: 2026-04-14 11:00:00
-description: "本科第一年我一直以为我会做几何 / 数论。一年后我决定把研究主线挪到 SAT/MaxSAT 上。这是我对自己的一份解释。"
+description: "记录一段研究兴趣的转向过程：从最初的代数几何 / Galois cohomology 偏好，到目前的组合优化与 MaxSAT 求解。这种转向并非取代关系，而是观察到 closed system 与 open system 在研究反馈结构上的不同后所做的方向调整。"
 tags: research career maxsat
 categories: opinion
 ---
 
-#### 我的初始位置
+## 起点
 
-我刚进大学的时候，"科研" 在我脑子里就等于 *找一个干净的问题，证一个深的定理*。我对几何与数论很向往，初学 Hartshorne，对 Galois cohomology 抱有那种很矫情但很真实的崇敬感。
+进入大学时的研究偏好停留在代数几何与代数数论的方向，尤其是 Galois cohomology 与 étale 方面。这一偏好部分受经典文献影响（Hartshorne、Milne 的 lecture notes），部分受高中阶段对"概念间内部一致性"的偏爱影响。在该框架下，研究问题的成立与否、解答的正确与否，都可在公理体系内部的有限步骤中确定。
 
-#### 第一次让我犹豫的事
+## 一次具体观察
 
-大一暑假我跟一位老师做一个组合优化方向的小项目：MWDS 的近似比分析。老师问我：「这个新的 reduction，你觉得它在 BHOSLIB 上 UB 会更紧吗？」
+大一暑期参与一个组合优化方向的小项目（MWDS 的 reduction 分析）。在该项目中遇到的核心问题之一可表述为：给定一个 reduction $r$，能否预测它在 BHOSLIB 这一类难 instance 上对 UB 的实际收紧？此时我能给出 $r$ 在抽象层面对 LB 的单调性证明，但无法给出对 *经验* UB 行为的预测。该问题的答案不是从 $r$ 的形式定义中导出的，它依赖 instance 分布、求解器实现、缓存层级、时间预算这些 *外生* 因素。
 
-我答不上来。
-我会证 reduction 保持下界单调；我推不出实际 instance 上它能不能让 UB 实际收紧。**因为后者是一个经验问题，不是一个证明问题。**
+由此意识到的不仅是"理论结论与实验结果之间存在 gap"——这早就清楚——而是**两类研究问题在反馈结构上是不同的**：
 
-那个暑假之后我意识到一件事：我以前喜欢的"漂亮的证明"其实是一个 **closed system** —— 内部自洽就行；
-但**算法在真实数据上的行为**是一个 **open system**，它的语义在 instance 分布、求解器选择、硬件、缓存、时间预算之间。
+- *Closed system* 问题（典型为代数几何中的某一证明）：判定准则在公理系统内部，正确性可在有限步骤内确认。
+- *Open system* 问题（典型为算法在真实 instance 分布上的行为）：判定准则部分位于系统外部（数据分布、硬件、时间），需要不断与外部信号对照。
 
-我不是说 closed system 不重要。我是说，我发现 open system 才是让我真正想长期投入的东西。
+当时的判断是：自己更适合做 open system 类型的问题。这并非价值判断，而是关于研究反馈节奏的偏好——open system 中"小动作 → 立刻看到反馈"的循环更短，更容易支撑长期投入。
 
-#### MaxSAT 是怎么进来的
+## 为什么是 MaxSAT
 
-转折发生在我第一次读 Bonet & Levy 的 *Logic in Computer Science* 第 11 章，以及 Marques-Silva 的 *Boolean Satisfiability Solvers*。
-我意识到 MaxSAT 是一个非常少见的"中间地带":
+在 open system 内部仍有许多分支可选。MaxSAT 求解之所以成为目前的主线，原因有以下三点：
 
-- 它的核心是组合的，**有清晰的近似界与硬度结果**（数学家的菜）；
-- 但同时，**算法 -- 实例 -- 求解器的交互是经验的**，所有现代进展几乎都来自实证（实证算法学者的菜）。
+- **理论与实证并存**：MaxSAT 同时具备清晰的近似界 / 硬度结果与活跃的实证算法社区。Bonet–Levy 的 *Logic in Computer Science* 第 11 章给出对 SAT 的形式化处理，Marques-Silva 的综述梳理了现代 CDCL 的实证演进。两者并存意味着可以在同一个问题上两边走。
+- **底层结构清晰**：CNF 这一表示形式简单到可以直接讨论 propagation 与 conflict learning，但又足以表达大量组合问题（dominating sets, integer programs, model counting 等）。这种底层简洁性降低了"理论与实现之间转换"的成本。
+- **基线竞争激烈**：现代 SAT / MaxSAT 求解器（kissat、CASHWMaxSAT、WMaxCDCL 等）在实证基准上的差距足够小，新方法的 marginal contribution 必须在相同 setting 下严格证明，避免出现"看似有效但取决于 hyperparameter"的退化。
 
-我喜欢这个 in-between 的位置。它让我可以一只脚站在证明里、另一只脚站在 benchmark 里，两边都不假装自己是对方。
+这三点共同决定 MaxSAT 是一个**"小动作能被严格判定"**的研究方向。
 
-#### 一年后我学到的
+## 当前的工作
 
-1. **从纯数学过来的人最容易踩的坑**：低估实现细节，高估"理解了 idea 就等于做出来了"。我的 [NLIP 第一次编码就翻车]({{ '/blog/2026/nlip-encoding-first-mistake/' | relative_url }})就是个例子。
-2. **从纯数学过来的人最大的优势**：不会被一时的实验涨点带跑，会坚持问"为什么有效"。
-3. **真正的 phenomenon-driven 研究既需要数学的纪律，也需要 hacker 的耐心**。两边都不能省。
+按这一判断，目前的研究主线集中在四个方向：
 
-我没有完全离开数学。我对组合公平性、对偶性、抽象格论的兴趣还在，只是它们现在以另一种方式出现 —— 出现在 *为什么这个 sufficient condition 把可行域砍小了*、*为什么这个 reduction 在 partial-order 下保持 valid* 这些问题里。
+- 多样性枚举的 SAT 编码（DiverseSAT，[项目页]({{ '/projects/2_diversesat/' | relative_url }})）；
+- 非线性整数规划的 MaxSAT 编码（[项目页]({{ '/projects/3_nlip/' | relative_url }})）；
+- MWDS 下界搜索的 RL 强化（AntQO，[项目页]({{ '/projects/1_mwds/' | relative_url }})）；
+- 多资源公平分配（UNB-MT，[项目页]({{ '/projects/4_fair-ratio/' | relative_url }})）。
 
-写给读到这里的别的本科生：**学科的边界比想象中模糊很多，你 18 岁时承诺的方向不一定是 22 岁时仍然在乎的事**。
-不要把"专业认同"放在 "想做的研究" 之前。
+这四个方向并非完全独立。它们在底层都涉及"如何在带组合内核的优化问题上，将一个 well-defined 的数学结构嵌入到现代求解器的 conflict learning 与 reduction 系统中"。从分析方法来看，依然能用到代数 / 数论训练遗留的部分纪律（关注 sufficient condition 是否过强、关心 reduction 的 closure 性质等），只是现在它们以不同形态出现。
+
+## 一句不算总结的话
+
+研究方向转向并不要求对原方向的全盘否认。代数几何为我提供了对 *正确性* 的标准；现在把这一标准用在不同的对象上。
+
+## 引用
+
+```bibtex
+@misc{yangli2026switch,
+  title={从代数几何到 MaxSAT 求解：研究兴趣转向的若干背景},
+  author={Yangli, Zhengling},
+  journal={Zhengling Yangli's Blog},
+  year={2026},
+  url={https://zhenglingyangli.github.io/blog/2026/why-i-switched-from-pure-math-to-maxsat/}
+}
+```

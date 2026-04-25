@@ -1,31 +1,31 @@
 ---
 layout: page
 permalink: /life-news/
-title: 生活动态
-description: 学业之外的日常 —— 读书、出行、生活感受。
+title: 近况
+description: 学术活动、报告与生活上的更新。
 nav: false
 lang: zh
 ---
 
-<div class="news">
-  {% assign all_news = site.news | sort: 'date' | reverse %}
-  {% assign filtered = all_news | where: 'category', 'life' %}
+<div class="news-list">
+  {% assign sorted_news = site.news | sort: 'date' | reverse %}
+  {% assign filtered = sorted_news | where: 'category', 'life' %}
   {% if filtered.size == 0 %}
-    <p class="text-muted">📝 这里暂时是空的，等学期收尾以后会慢慢补上。</p>
+    <p class="text-muted">暂无内容。</p>
   {% else %}
-    <table class="table table-sm table-borderless">
+    <ul class="news-list" style="list-style: none; padding-left: 0;">
       {% for item in filtered %}
-        <tr>
-          <th scope="row" style="width: 20%">{{ item.date | date: '%Y-%m-%d' }}</th>
-          <td>
-            {% if item.inline %}
-              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-            {% else %}
-              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-            {% endif %}
-          </td>
-        </tr>
+        <li class="mb-3">
+          <span class="news-date" style="color: var(--global-text-color-light);">
+            {{ item.date | date: '%Y-%m-%d' }}
+          </span>
+          &nbsp;&middot;&nbsp;
+          <strong>{{ item.title }}</strong>
+          {% if item.content %}
+            <div>{{ item.content | markdownify }}</div>
+          {% endif %}
+        </li>
       {% endfor %}
-    </table>
+    </ul>
   {% endif %}
 </div>

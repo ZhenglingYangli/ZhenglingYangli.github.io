@@ -2,30 +2,30 @@
 layout: page
 permalink: /comp-news/
 title: 比赛动态
-description: 学科竞赛、应用项目相关的最新动态。
+description: 数学建模、统计建模、华为软件精英挑战赛、计图人工智能等比赛的进展记录。
 nav: false
 lang: zh
 ---
 
-<div class="news">
-  {% assign all_news = site.news | sort: 'date' | reverse %}
-  {% assign filtered = all_news | where: 'category', 'competition' %}
+<div class="news-list">
+  {% assign sorted_news = site.news | sort: 'date' | reverse %}
+  {% assign filtered = sorted_news | where: 'category', 'competition' %}
   {% if filtered.size == 0 %}
-    <p class="text-muted">暂时还没有新动态。</p>
+    <p class="text-muted">暂无内容。</p>
   {% else %}
-    <table class="table table-sm table-borderless">
+    <ul class="news-list" style="list-style: none; padding-left: 0;">
       {% for item in filtered %}
-        <tr>
-          <th scope="row" style="width: 20%">{{ item.date | date: '%Y-%m-%d' }}</th>
-          <td>
-            {% if item.inline %}
-              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-            {% else %}
-              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-            {% endif %}
-          </td>
-        </tr>
+        <li class="mb-3">
+          <span class="news-date" style="color: var(--global-text-color-light);">
+            {{ item.date | date: '%Y-%m-%d' }}
+          </span>
+          &nbsp;&middot;&nbsp;
+          <strong>{{ item.title }}</strong>
+          {% if item.content %}
+            <div>{{ item.content | markdownify }}</div>
+          {% endif %}
+        </li>
       {% endfor %}
-    </table>
+    </ul>
   {% endif %}
 </div>

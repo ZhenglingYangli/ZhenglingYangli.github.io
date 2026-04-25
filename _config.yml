@@ -92,8 +92,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Notes on Research
-blog_description: Phenomenon-driven notes on SAT, MWDS and fair allocation
+blog_name: 研究笔记
+blog_description: 关于 SAT、MWDS 与公平分配的阶段性记录
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 

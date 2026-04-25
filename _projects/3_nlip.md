@@ -42,9 +42,9 @@ related_publications: true
 - **UNA** 有可复现的 scaling 失败：propagation 在域大小 $> 64$ 时崩溃。
 - 在 QPLIB 上，sparse quadratic 子集里 **MaxHS + OH 在若干实例上击败了 CPLEX**。
 
-## 早期踩过的坑
+## 一些已知问题
 
-第一份 BIN encoding 我把整数变量当 unsigned 编了，但 QPLIB 里有些变量下界是负的 —— partial-product 没做 Booth recoding，乘法整体偏大。详见 [NLIP encoding 第一次错误]({{ '/blog/2026/nlip-encoding-first-mistake/' | relative_url }})。
+最初的 BIN encoding 实现把整数变量按 unsigned 形式处理，但 QPLIB 中存在 $\ell < 0$ 的变量；partial-product 在 two's complement 下未做 Booth recoding，导致含负变量的 quadratic 项目标值系统性偏大。修正方案与诊断过程见 [BIN encoding 中负数变量的处理]({{ '/blog/2026/nlip-encoding-first-mistake/' | relative_url }})。
 
 ## 现状
 

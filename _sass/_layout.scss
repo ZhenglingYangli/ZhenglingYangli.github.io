@@ -9,6 +9,16 @@ body {
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
 
+  // Typography defaults (matches reference site)
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
   h1,
   h2,
   h3,
@@ -16,6 +26,41 @@ body {
   h5,
   h6 {
     scroll-margin-top: 66px;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: var(--text-3xl);
+  }
+  h3 {
+    font-size: var(--text-2xl);
+  }
+  h4 {
+    font-size: var(--text-xl);
+  }
+  h5 {
+    font-size: var(--text-lg);
+  }
+  h6 {
+    font-size: var(--text-base);
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  code,
+  pre,
+  kbd {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
   }
 }
 

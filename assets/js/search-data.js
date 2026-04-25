@@ -9,68 +9,131 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "Selected research and applied projects.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/projects/";
-          },
-        },{id: "nav-publications",
-          title: "publications",
-          description: "Publications and preprints (newest first). The * marks papers where I am (or will be) a contributing author.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/publications/";
-          },
-        },{id: "nav-cv",
-          title: "cv",
-          description: "Curriculum Vitae of Zhengling Yangli. PDF version.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/cv/";
-          },
-        },{id: "nav-repositories",
-          title: "repositories",
-          description: "Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
-          },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Course materials, schedules, and resources for classes taught.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/teaching/";
-          },
-        },{id: "nav-people",
-          title: "people",
-          description: "members of the lab or group",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/people/";
-          },
-        },{id: "dropdown-bookshelf",
-              title: "bookshelf",
+  },{id: "dropdown-projects",
+              title: "Projects",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/projects/";
+              },
+            },{id: "dropdown-publications",
+              title: "Publications",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/publications/";
+              },
+            },{id: "dropdown-notes",
+              title: "Notes",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/notes/";
+              },
+            },{id: "dropdown-科研项目",
+              title: "科研项目",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/projects/";
+              },
+            },{id: "dropdown-论文发表",
+              title: "论文发表",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/publications/";
+              },
+            },{id: "dropdown-过程思考",
+              title: "过程思考",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/notes/";
+              },
+            },{id: "dropdown-applied-projects",
+              title: "Applied Projects",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/projects/#applied";
+              },
+            },{id: "dropdown-awards",
+              title: "Awards",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/awards/";
+              },
+            },{id: "dropdown-updates",
+              title: "Updates",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/comp-news/";
+              },
+            },{id: "dropdown-应用项目",
+              title: "应用项目",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/projects/#applied";
+              },
+            },{id: "dropdown-获得奖项",
+              title: "获得奖项",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/awards/";
+              },
+            },{id: "dropdown-比赛动态",
+              title: "比赛动态",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/comp-news/";
+              },
+            },{id: "dropdown-news",
+              title: "News",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/life-news/";
+              },
+            },{id: "dropdown-bookshelf",
+              title: "Bookshelf",
               description: "",
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "dropdown-blog",
-              title: "blog",
+            },{id: "dropdown-opinions",
+              title: "Opinions",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/blog/";
+                window.location.href = "/opinions/";
+              },
+            },{id: "dropdown-动态",
+              title: "动态",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/life-news/";
+              },
+            },{id: "dropdown-书架",
+              title: "书架",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/books/";
+              },
+            },{id: "dropdown-观点",
+              title: "观点",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/zh/opinions/";
               },
             },{id: "post-why-tightening-the-lower-bound-did-not-shrink-opt-on-mwds",
         
@@ -127,11 +190,16 @@ ninja.data = [{
             window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
+      },{id: "books-handbook-of-satisfiability-2nd-edition",
+          title: 'Handbook of Satisfiability (2nd Edition)',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
+              window.location.href = "/books/handbook_of_satisfiability/";
+            },},{id: "books-combinatorial-optimization-polyhedra-and-efficiency",
+          title: 'Combinatorial Optimization — Polyhedra and Efficiency',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/combinatorial_optimization/";
             },},{id: "news-12-competition-awards-accumulated-so-far-including-1st-prizes-at-the-national-collegiate-computer-challenge-nat-l-gold-huajiao-cup-math-modeling-nat-l-gold-and-a-bronze-medal-at-acm-icpc-regional",
           title: '12 competition awards accumulated so far, including 1st prizes at the National Collegiate...',
           description: "",

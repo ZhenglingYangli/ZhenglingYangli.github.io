@@ -35,21 +35,21 @@ ninja.data = [{
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/projects/";
+                window.location.href = "/projects/";
               },
             },{id: "dropdown-论文发表",
               title: "论文发表",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/publications/";
+                window.location.href = "/publications/";
               },
             },{id: "dropdown-过程思考",
               title: "过程思考",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/notes/";
+                window.location.href = "/notes/";
               },
             },{id: "dropdown-applied-projects",
               title: "Applied Projects",
@@ -77,21 +77,21 @@ ninja.data = [{
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/projects/#applied";
+                window.location.href = "/projects/#applied";
               },
             },{id: "dropdown-获得奖项",
               title: "获得奖项",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/awards/";
+                window.location.href = "/awards/";
               },
             },{id: "dropdown-比赛动态",
               title: "比赛动态",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/comp-news/";
+                window.location.href = "/comp-news/";
               },
             },{id: "dropdown-news",
               title: "News",
@@ -119,53 +119,86 @@ ninja.data = [{
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/life-news/";
+                window.location.href = "/life-news/";
               },
             },{id: "dropdown-书架",
               title: "书架",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/books/";
+                window.location.href = "/books/";
               },
             },{id: "dropdown-观点",
               title: "观点",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/zh/opinions/";
+                window.location.href = "/opinions/";
               },
-            },{id: "post-why-tightening-the-lower-bound-did-not-shrink-opt-on-mwds",
+            },{id: "post-lb-紧了-30-opt-却没动-我才明白指标不是同质的",
         
-          title: "Why tightening the lower bound did not shrink #opt on MWDS",
+          title: "LB 紧了 30%，#opt 却没动 —— 我才明白指标不是同质的",
         
-        description: "A phenomenon-driven analysis of the LB → UB coupling bottleneck in Dual-Bound Search, using the Ant-Q plug-in as the lens.",
+        description: "AntQO 在 ECAI-2025 基线上的一个困惑：把 Ant-Q 插进 LB 端之后，relative gap 一路下跌（Deep 上 −23.7% 至 −31.2%），但 #opt / #min 却几乎不动。一开始我以为是 bug，后来才意识到这是 Dual-Bound Search 框架的结构性属性。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/lb-ub-coupling-mwds/";
           
         },
-      },{id: "post-diversity-as-a-source-problem-two-applications-that-need-k-diverse-sat-models",
+      },{id: "post-为什么我从纯数学转向了-maxsat-求解",
         
-          title: "Diversity as a source problem: two applications that need $k$ diverse SAT models...",
+          title: "为什么我从纯数学转向了 MaxSAT 求解",
         
-        description: "Why finding $k$ maximally different satisfying assignments is not a toy. Two concrete applications from bounded model checking and robust network design.",
+        description: "本科第一年我一直以为我会做几何 / 数论。一年后我决定把研究主线挪到 SAT/MaxSAT 上。这是我对自己的一份解释。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/why-i-switched-from-pure-math-to-maxsat/";
+          
+        },
+      },{id: "post-antqo-v1-我以为-rl-加了稳赚不赔-结果在-udg-上掉了点",
+        
+          title: "AntQO v1：我以为 RL 加了稳赚不赔，结果在 UDG 上掉了点",
+        
+        description: "Ant-Q 在大多数 MWDS 实例上都能找到比贪心更好的下界。但在 UDG（unit disk graph）这种结构很规则的实例上，探索反而把好序列扰乱掉了。这个负结果让我学会了一件事：探索是有成本的。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/antq-v1-uniform-rl-not-free-lunch/";
+          
+        },
+      },{id: "post-diversesat-不是奇怪的-toy-但我花了一年才能这么讲",
+        
+          title: "DiverseSAT 不是奇怪的 toy —— 但我花了一年才能这么讲",
+        
+        description: "曾经一个 reviewer 写：&#39;k 个最大化差异的满足解，这是一个真问题吗？&#39;当时我觉得他没读懂；后来我意识到他读得很懂，是我没把动机讲清楚。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/diversity-as-a-source-problem/";
           
         },
-      },{id: "post-why-a-linear-ef-sufficient-condition-is-too-loose-under-partial-access",
+      },{id: "post-我花了一个月相信一个-lemma-是对的-最后是它把我害了",
         
-          title: "Why a linear EF sufficient condition is too loose under partial access",
+          title: "我花了一个月相信一个 Lemma 是对的，最后是它把我害了",
         
-        description: "An honest post-mortem of PairEF-auto. DRF-MT&#39;s own allocation — the 23× y-ratio with zero envy — violates our LP-based EF constraints.",
+        description: "PairEF-auto 的死亡复盘：当一个已知公平的 published allocation 违反我自己的充分条件时，错的几乎一定是我，不是 published 的算法。",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/unb-mt-why-lemma-2-is-too-loose/";
+          
+        },
+      },{id: "post-我交给老师的第一份-nlip-编码方案是错的-关于-unsigned-vs-signed-的本科生-1a-错误",
+        
+          title: "我交给老师的第一份 NLIP 编码方案是错的（关于 unsigned vs signed 的本科生 1A 错误）",
+        
+        description: "把 x*y 编进 SAT 听起来很简单：把变量按二进制位拼起来做 partial-product，再 carry。我是这么写的，第一个 instance 就给出了错答案。",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/nlip-encoding-first-mistake/";
           
         },
       },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
@@ -217,42 +250,42 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-ant-q-for-mwds",
           title: 'Ant-Q for MWDS',
-          description: "A Lightweight Ant-Colony + Q-Learning Plug-in that Tightens Lower Bounds in Dual-Bound Search",
+          description: "用一个轻量的 Ant-Q（ACO + Q-Learning）插件，收紧 Dual-Bound Search 在 MWDS 上的下界",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_mwds/";
             },},{id: "projects-diversesat",
           title: 'DiverseSAT',
-          description: "Finding $k$ Maximally Diverse Satisfying Assignments via Threshold Encodings",
+          description: "通过阈值编码寻找 $k$ 个差异最大化的 SAT 满足解",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_diversesat/";
             },},{id: "projects-nlip-via-maxsat",
           title: 'NLIP via MaxSAT',
-          description: "Encoding Non-linear Integer Programs into Weighted MaxSAT",
+          description: "把非线性整数规划编码到加权 MaxSAT",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_nlip/";
-            },},{id: "projects-unb-mt-beyond-drf-mt",
-          title: 'UNB-MT — Beyond DRF-MT',
-          description: "Group-Level Differentiation for Fair and Efficient Multi-Resource Allocation under Meta-Type Accessibility",
+            },},{id: "projects-unb-mt-在-drf-mt-之上",
+          title: 'UNB-MT —— 在 DRF-MT 之上',
+          description: "多资源公平分配中按组差异化提升社会福利的尝试",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_fairmt/";
             },},{id: "projects-mathrag",
           title: 'MathRAG',
-          description: "Retrieval-Augmented Step-wise Mathematical Problem Solving",
+          description: "检索增强的分步数学问题求解系统",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_mathrag/";
-            },},{id: "projects-kunming-coffee-delivery-market",
-          title: 'Kunming Coffee-Delivery Market',
-          description: "Survival Strategies for New Entrants under a Tri-Platform Competitive Landscape (Meituan / Ele.me / JD Miaosong)",
+            },},{id: "projects-昆明咖啡外卖市场",
+          title: '昆明咖啡外卖市场',
+          description: "三平台竞争格局下新入局商户的生存策略（美团 / 饿了么 / 京东秒送）",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_meituan/";
-            },},{id: "projects-mindfulness-wearables",
-          title: 'Mindfulness × Wearables',
-          description: "Quantifying the Effect of Mindfulness Meditation on College Student Mental Health via EEG Wearables",
+            },},{id: "projects-正念冥想-可穿戴",
+          title: '正念冥想 × 可穿戴',
+          description: "用 EEG 可穿戴设备量化正念冥想对大学生心理健康的干预效果",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_mindfulness/";
-            },},{id: "projects-min-cost-flow-for-supply-chain",
-          title: 'Min-Cost Flow for Supply Chain',
-          description: "Graph-theoretic Supply-Demand Allocation Using Minimum-Cost Network Flow",
+            },},{id: "projects-供应链最小费用流",
+          title: '供应链最小费用流',
+          description: "用最小费用网络流做供需分配",
           section: "Projects",handler: () => {
               window.location.href = "/projects/8_mincostflow/";
             },},{id: "teachings-data-science-fundamentals",

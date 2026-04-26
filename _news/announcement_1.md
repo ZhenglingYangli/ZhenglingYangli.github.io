@@ -6,4 +6,4 @@ related_posts: false
 category: research
 ---
 
-Latest milestone on the MWDS project: `Deep-v6` and `Fast-v19` (Ant-Q plug-ins on the ECAI-2025 baselines) reduce the row-averaged LB-gap by 23.7%–31.2% on Deep and 6.9%–9.9% on Fast across two test suites. Report [here](/projects/1_mwds/).
+MWDS 项目阶段性更新：在 ECAI 2025 baseline 上接入 Ant-Q 插件后，`Deep-v6` 在两套测试集上的 row-averaged LB-gap 下降 23.7%–31.2%，`Fast-v19` 下降 6.9%–9.9%。项目记录见 [AntQO for MWDS](/projects/1_mwds/)。

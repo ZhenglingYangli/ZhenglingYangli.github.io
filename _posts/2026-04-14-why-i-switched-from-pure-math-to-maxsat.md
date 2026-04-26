@@ -39,7 +39,7 @@ categories: opinion
 - 多样性枚举的 SAT 编码（DiverseSAT，[项目页]({{ '/projects/2_diversesat/' | relative_url }})）；
 - 非线性整数规划的 MaxSAT 编码（[项目页]({{ '/projects/3_nlip/' | relative_url }})）；
 - MWDS 下界搜索的 RL 强化（AntQO，[项目页]({{ '/projects/1_mwds/' | relative_url }})）；
-- 多资源公平分配（UNB-MT，[项目页]({{ '/projects/4_fair-ratio/' | relative_url }})）。
+- 多资源公平分配（UNB-MT，[项目页]({{ '/projects/4_fairmt/' | relative_url }})）。
 
 这四个方向并非完全独立。它们在底层都涉及"如何在带组合内核的优化问题上，将一个 well-defined 的数学结构嵌入到现代求解器的 conflict learning 与 reduction 系统中"。从分析方法来看，依然能用到代数 / 数论训练遗留的部分纪律（关注 sufficient condition 是否过强、关心 reduction 的 closure 性质等），只是现在它们以不同形态出现。
 

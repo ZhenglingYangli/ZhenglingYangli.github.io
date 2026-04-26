@@ -6,4 +6,4 @@ related_posts: false
 category: research
 ---
 
-The `DiverseSAT` journal submission is now under preparation for **JAIR**. New experiments cover 289 instances across 7 families with DW/IW encodings and three search strategies.
+`DiverseSAT` 的期刊版正在准备投稿 **JAIR**。新增实验覆盖 7 个 benchmark 家族、289 个 instance，并系统比较 DW / IW 两类编码与三种搜索策略。

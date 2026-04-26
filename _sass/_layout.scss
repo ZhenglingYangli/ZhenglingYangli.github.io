@@ -85,6 +85,47 @@ body.sticky-bottom-footer {
   }
 }
 
+.research-map {
+  margin: 1.25rem 0 1.75rem;
+
+  .research-card {
+    height: 100%;
+    padding: 1.05rem 1.1rem;
+    border: 1px solid var(--global-divider-color);
+    border-left: 4px solid var(--global-theme-color);
+    border-radius: 0.85rem;
+    background: var(--global-card-bg-color);
+    box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.04);
+  }
+
+  .research-card-kicker {
+    margin-bottom: 0.35rem;
+    color: var(--global-theme-color);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  h5 {
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 0.65rem;
+  }
+
+  .research-card-links {
+    margin-bottom: 0;
+    font-weight: 600;
+
+    span {
+      margin: 0 0.35rem;
+      color: var(--global-text-color-light);
+    }
+  }
+}
+
 // Content layout uses Bootstrap's grid system with responsive columns
 // Main content flows naturally through container-mt-5 and Bootstrap grid classes
 // See _layouts/default.liquid and _includes/projects.liquid for examples

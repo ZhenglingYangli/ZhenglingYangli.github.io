@@ -12,9 +12,11 @@ related_publications: true
 
 **非线性整数规划（NLIP）** —— 在 bounded integer 变量上，多项式目标与多项式约束下找最优整数解。这个问题统一了 QP、QIP 以及 SMT-LIB `QF_NIA` 上的 polynomial arithmetic 约束。
 
-## 思路
+这个编码方向的动机是：SMT 求解器（如 Z3）在 `QF_NIA` 上的策略依赖启发式非线性算术推理，对某类 sparse quadratic 结构缺乏系统性的界收紧机制；而 MaxSAT 求解器通过 clause-level conflict learning 与 PB relaxation 提供了一条不同的求解路径。问题不是"MaxSAT 一定更好"，而是"在哪类结构上 MaxSAT 能系统性地优于 Z3 / CPLEX，原因是什么"。
 
-把 NLIP 编码为**加权 MaxSAT**（WCNF），借助现代 MaxSAT 求解器。我们研究四种编码家族：
+## 方法
+
+把 NLIP 编码为**加权 MaxSAT**（WCNF），借助现代 MaxSAT 求解器。我们系统研究四种整数变量的布尔编码方案：
 
 | 编码     | 域表示                                  | 强项                                   |
 | -------- | --------------------------------------- | -------------------------------------- |
@@ -42,10 +44,10 @@ related_publications: true
 - **UNA** 有可复现的 scaling 失败：propagation 在域大小 $> 64$ 时崩溃。
 - 在 QPLIB 上，sparse quadratic 子集里 **MaxHS + OH 在若干实例上击败了 CPLEX**。
 
-## 一些已知问题
+## 合作与进展
+
+本项目是与法国皮卡第大学（Université de Picardie Jules Verne）[Saïd Cherif](https://home.mis.u-picardie.fr/~cherif/) 教授的合作研究。经过约一年的基准构建与编码设计，论文草稿已提交 **SAT 2026**（CCF-B）。
+
+## 已知的设计细节
 
 最初的 BIN encoding 实现把整数变量按 unsigned 形式处理，但 QPLIB 中存在 $\ell < 0$ 的变量；partial-product 在 two's complement 下未做 Booth recoding，导致含负变量的 quadratic 项目标值系统性偏大。修正方案与诊断过程见 [BIN encoding 中负数变量的处理]({{ '/blog/2026/nlip-encoding-first-mistake/' | relative_url }})。
-
-## 现状
-
-写作中。

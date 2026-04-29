@@ -35,6 +35,6 @@ $$
 
 289 个 benchmark instance，覆盖 7 个家族（`ais`、`flat100±`、`hardware`、`logistics`、`mc2024`、`morphed` 等）；对照基线包含 CPLEX (`QP/DW/IW`)、MaxSAT (`CASHWMaxSAT`、`MaxHS`、`WMaxCDCL`)、Pseudo-Boolean (`RoundingSAT`) 与若干 SAT baseline。
 
-## 现状
+## 当前进展
 
-正在准备 JAIR 版重写。早先 CP 投稿在 novelty framing 与 benchmark 范围两点上收到批评，期刊版的修订主要补：binary encoding + symmetry breaking 作为额外 baseline 家族；多 $k$ 实验（$k \in \{2, 5, 10\}$）下分别比较 MaxSAT 与 CPLEX；以及对应的复杂度结果。详见下方关联 publication。
+期刊版正在修订，目标投稿 **JAIR**。修订方向：补充 binary encoding + symmetry breaking 作为额外 baseline 家族；在 $k \in \{2, 5, 10\}$ 下系统比较 MaxSAT 与 CPLEX；以及补全对应的复杂度证明。详见下方关联 publication。

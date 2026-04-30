@@ -7,9 +7,9 @@
 :root {
   color-scheme: light;
 
-  // --- Typography (mirrors jiaxuanzou0714.github.io) ---
+  // --- Typography ---
   --font-sans: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-  --font-serif: Lora, Georgia, "Songti SC", "STSong", SimSun, "Noto Serif SC", serif;
+  --font-serif: var(--font-sans);
   --font-mono: SFMono-Regular, "Cascadia Code", "Fira Code", Menlo, Consolas, monospace;
 
   // Fluid type scale via clamp(min, fluid, max)

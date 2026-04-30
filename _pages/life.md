@@ -1,6 +1,6 @@
 ---
 layout: page
-title: life
+title: Life
 nav: true
 nav_order: 3
 dropdown: true

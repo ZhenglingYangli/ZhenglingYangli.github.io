@@ -1,101 +1,101 @@
-- title: General Information
+- title: 基本信息
   type: map
   contents:
-    - name: Full Name
-      value: Zhengling Yangli (杨李正凌)
-    - name: Languages
-      value: Chinese (native), English (academic reading / writing)
+    - name: 姓名
+      value: 杨李正凌（Zhengling Yangli）
+    - name: 语言
+      value: 中文（母语）、英语（学术读写）
 
-- title: Education
+- title: 教育经历
   type: time_table
   contents:
-    - title: B.Sc. in Statistics
-      institution: School of Mathematics and Statistics, Yunnan University
-      year: 2024 — Present
+    - title: 统计学 本科
+      institution: 云南大学 数学与统计学院
+      year: 2024 — 至今
       description:
-        - "GPA: 3.79 / 4.0 &nbsp;·&nbsp; Rank: 1 / 102"
-        - "Core coursework: Mathematical Analysis, Probability &amp; Statistics, Operations Research, C++ Programming, R, Python"
+        - "GPA：3.79 / 4.0 &nbsp;·&nbsp; 年级排名：1 / 102"
+        - "主修课程：数学分析、概率论与数理统计、运筹学、C++ 程序设计、R、Python"
 
-- title: Research Experience
+- title: 科研经历
   type: time_table
   contents:
-    - title: MWDS / Ant-Q plug-in for Dual-Bound Search
-      year: 2026 — Present
+    - title: MWDS / Ant-Q 双界搜索插件
+      year: 2026 — 至今
       description:
-        - "Ant-Colony + Q-Learning module plugged into the LB-side pair construction of ECAI-2025 baselines Dual-Deep / Dual-Fast"
-        - "Best variants Deep-v6 and Fast-v19: −23.7% to −31.2% row-averaged gap on Deep and −6.9% to −9.9% on Fast across two test suites"
-        - "Per-instance gap win-rate up to 99.37%; identified the LB → UB coupling bottleneck through hard reduction rules"
+        - "将蚂蚁群落 + Q-Learning 模块嵌入 ECAI-2025 基线 Dual-Deep / Dual-Fast 的下界侧对构造"
+        - "最优变体 Deep-v6 与 Fast-v19：两个测试集上 Deep 行平均 gap 降低 23.7%–31.2%，Fast 降低 6.9%–9.9%"
+        - "逐实例 gap 胜率最高达 99.37%；通过硬规约识别了 LB→UB 耦合瓶颈"
 
-    - title: DiverseSAT (journal version)
-      year: 2025 — Present
+    - title: DiverseSAT（期刊版）
+      year: 2025 — 至今
       description:
-        - "$k$-diverse SAT model enumeration via DW / IW threshold encodings + binary-lifting / binary-search / SAT-UNSAT"
-        - "Model-aware refinement exploiting partial solutions"
-        - "Benchmark: 289 instances across 7 families (ais, flat100±, hardware, logistics, mc2024, morphed)"
-        - "Targeting JAIR"
+        - "基于 DW/IW 阈值编码 + 二进制提升/二分搜索/SAT-UNSAT 的 k-diverse SAT 模型枚举"
+        - "利用偏解的模型感知细化"
+        - "基准：7 类共 289 个实例（ais、flat100±、hardware、logistics、mc2024、morphed）"
+        - "目标投稿 JAIR"
 
     - title: NLIP → MaxSAT
-      year: 2025 — Present
+      year: 2025 — 至今
       description:
-        - "Systematic study of OH / UNA / BIN / BIN+DECOMP encodings for non-linear integer programming"
-        - "Built NLIP_filters pipeline across 5 source libraries (QPLIB, NL, SMT-LIB, CSPlib, XCSP)"
-        - "Benchmarks: QPLIB (137), SMT-LIB QF_NIA (2591), Diverse-SAT (287)"
-        - "Paper submitted to SAT 2026 (CCF-B); collaboration with Prof. Saïd Cherif, Université de Picardie Jules Verne"
+        - "系统研究非线性整数规划的 OH/UNA/BIN/BIN+DECOMP 编码方案"
+        - "构建 NLIP_filters 流水线，覆盖 5 个源库（QPLIB、NL、SMT-LIB、CSPlib、XCSP）"
+        - "基准：QPLIB (137)、SMT-LIB QF_NIA (2591)、Diverse-SAT (287)"
+        - "论文已投 SAT 2026（CCF-B）；与法国皮卡第儒勒·凡尔纳大学 Saïd Cherif 教授合作"
 
     - title: Fair-Ratio / UNB-MT
-      year: 2026 — Present
+      year: 2026 — 至今
       description:
-        - "Extension of DRF-MT (IJCAI 2021) to meta-type accessibility via a UNB-style mechanism"
-        - "Proved SI, intra-group EF and minority → majority EF; analyzed the failure of linear EF sufficient conditions under partial access"
-        - "+2%–6% social welfare over DRF-MT on meta-type benchmarks"
+        - "将 DRF-MT（IJCAI 2021）扩展至元类型可达性，引入 UNB 机制"
+        - "证明了 SI、组内 EF 及少数群体→多数群体 EF；分析偏访问条件下线性 EF 充分条件的失效"
+        - "元类型基准上社会福利比 DRF-MT 提升 2%–6%"
 
     - title: MathRAG
       year: 2025
       description:
-        - "Retrieval-augmented mathematical reasoning with Qwen2-Math backbone"
-        - "∼94% on GSM8K and ∼89% on MATH"
-        - "Full-stack system (Vue frontend, Node.js + Redis backend)"
+        - "基于 Qwen2-Math 骨干的检索增强数学推理系统"
+        - "GSM8K 约 94%，MATH 约 89%"
+        - "全栈实现（Vue 前端，Node.js + Redis 后端）"
 
-    - title: Mindfulness × EEG Wearables
+    - title: 正念 × EEG 可穿戴设备
       year: 2024 — 2025
       description:
-        - "National College Student Innovation & Entrepreneurship Program (大创)"
-        - "Quantified mindfulness meditation effects via EEG wearable signals + standardized mental-health questionnaires"
-        - "Concluded 2025-10"
+        - "国家级大学生创新创业训练计划（大创）"
+        - "通过 EEG 可穿戴信号 + 标准化心理健康问卷量化正念冥想效果"
+        - "2025 年 10 月结题"
 
-- title: Awards & Honors
+- title: 获奖情况
   type: time_table
   contents:
     - year: 2025
       items:
-        - "[National · 1st Prize] National Collegiate Computer Ability Challenge"
-        - "[National · 1st Prize] 7th Huajiao Cup National Mathematics Competition (non-math major track), final round"
-        - "[National · 1st Prize] FLTRP·Guocai Cup – Understanding Contemporary China, English comprehensive competition"
-        - "[National · Bronze Medal] ACM-ICPC International Collegiate Programming Contest"
-        - "[National · 3rd Prize] National College English Contest (Class C)"
-        - "[Provincial · 1st Prize] Chinese Mathematical Olympiad for College Students (Advanced Math)"
-        - "[Provincial · 1st Prize] National Undergraduate Mathematical Modeling Contest"
-        - "[Provincial · 1st Prize] National College Computer Application and Information Literacy Contest"
-        - "[Provincial · 2nd Prize] CCCC (GPLT) — Group Programming Ladder Tournament"
-        - "[Provincial · 3rd Prize] 18th Sail·Inspur Cup China Collegiate Computer Design Contest (Yunnan)"
-        - "[Provincial · 3rd Prize] Blue Bridge Cup Software and IT Talent Contest"
+        - "【国家级 · 一等奖】全国大学生计算机能力挑战赛"
+        - "【国家级 · 一等奖】第七届华教杯全国数学竞赛（非数学专业赛道）决赛"
+        - "【国家级 · 一等奖】外研社·国才杯"理解当代中国"英语综合能力大赛"
+        - "【国家级 · 铜牌】ACM-ICPC 国际大学生程序设计竞赛"
+        - "【国家级 · 三等奖】全国大学英语竞赛（C 类）"
+        - "【省级 · 一等奖】全国大学生数学竞赛（高数组）"
+        - "【省级 · 一等奖】全国大学生数学建模竞赛"
+        - "【省级 · 一等奖】全国大学生计算机应用与信息素养大赛"
+        - "【省级 · 二等奖】CCCC（GPLT）团体程序设计天梯赛"
+        - "【省级 · 三等奖】第十八届帆·浪潮杯中国大学生计算机设计大赛（云南赛区）"
+        - "【省级 · 三等奖】蓝桥杯软件和信息技术人才大赛"
     - year: 2024
       items:
-        - "[National · 3rd Prize] National College Student English Translation Contest (college track)"
+        - "【国家级 · 三等奖】全国大学生英语翻译大赛（大学生组）"
 
-- title: Skills
+- title: 技能
   type: nested_list
   contents:
-    - title: Languages
+    - title: 编程语言
       items:
-        - Python, C / C++, R, TypeScript / JavaScript
+        - Python、C / C++、R、TypeScript / JavaScript
         - LaTeX
-    - title: Research tooling
+    - title: 科研工具
       items:
-        - SAT / MaxSAT — PySAT, MaxHS, WMaxCDCL, OpenWBO, CaDiCaL, RoundingSAT
-        - SMT / ILP — Z3, CPLEX
-        - Benchmarking — SLURM job management, custom batch runners
-    - title: Engineering
+        - SAT / MaxSAT — PySAT、MaxHS、WMaxCDCL、OpenWBO、CaDiCaL、RoundingSAT
+        - SMT / ILP — Z3、CPLEX
+        - 基准测试 — SLURM 作业调度、自定义批量运行器
+    - title: 工程技术
       items:
-        - Web — Astro, Express, Vue, Node.js, Redis
-        - Data — Pandas, NumPy, SciPy, ggplot2, NetworkX
+        - 前端 / 全栈 — Astro、Express、Vue、Node.js、Redis
+        - 数据分析 — Pandas、NumPy、SciPy、ggplot2、NetworkX

@@ -2,7 +2,7 @@
 layout: page
 permalink: /cv/
 title: 简历
-description: 杨黎政龄的个人简历。<a href="/assets/pdf/cv.pdf">PDF 版本</a>。
+description: 杨李正凌的个人简历。
 nav: false
 lang: zh
 ---

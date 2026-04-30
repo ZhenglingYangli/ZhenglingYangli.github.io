@@ -31,7 +31,7 @@ social: true
 
 主要研究方向是组合优化与 Boolean satisfiability 求解，具体地：SAT/MaxSAT 多样性枚举、非线性整数规划的 MaxSAT 编码、最小加权支配集的下界搜索强化、以及多资源公平分配中带 partial-access 的扩展机制。在方法上偏好从具体的实验异常出发，先尝试在第一性原理层面给出机制解释，再据此设计后续干预，而不是直接在大规模 hyperparameter 搜索上寻找经验拟合。
 
-#### Research Map
+#### 研究方向
 
 <div class="research-map">
   <div class="row row-cols-1 row-cols-md-2 g-3">
@@ -63,7 +63,7 @@ social: true
     </div>
     <div class="col">
       <div class="research-card">
-        <p class="research-card-kicker">Fair Allocation</p>
+        <p class="research-card-kicker">公平分配</p>
         <h5>partial-access 下的公平分配</h5>
         <p><strong>核心问题：</strong>在 meta-type 资源可访问集不同的场景下，能否在保留核心公平性约束的同时提升社会福利？</p>
         <p><strong>代表结果：</strong>UNB-MT 在 DRF-MT 基础上按 dominant meta-type 差异化 dominant share，并发现线性 EF 充分条件在 partial-access 下会过度收紧真实公平区域。</p>
@@ -76,7 +76,7 @@ social: true
     </div>
     <div class="col">
       <div class="research-card">
-        <p class="research-card-kicker">Applied Projects</p>
+        <p class="research-card-kicker">应用项目</p>
         <h5>从真实数据到可复现实验</h5>
         <p><strong>核心问题：</strong>当数据来自真实场景而非干净 benchmark 时，怎样保留可解释的建模管线？</p>
         <p><strong>代表结果：</strong>MathRAG、昆明咖啡外卖市场分析、正念 EEG 与最小费用流项目分别覆盖检索增强推理、平台数据分析、可穿戴信号与网络流建模。</p>

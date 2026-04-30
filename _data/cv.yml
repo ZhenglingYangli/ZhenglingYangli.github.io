@@ -13,8 +13,8 @@
       institution: School of Mathematics and Statistics, Yunnan University
       year: 2024 — Present
       description:
-        - "Student ID: 20241910355"
-        - "Core coursework: Mathematical Analysis, Probability & Statistics, Operations Research, C++ Programming, R, Python"
+        - "GPA: 3.79 / 4.0 &nbsp;·&nbsp; Rank: 1 / 102"
+        - "Core coursework: Mathematical Analysis, Probability &amp; Statistics, Operations Research, C++ Programming, R, Python"
 
 - title: Research Experience
   type: time_table
@@ -40,6 +40,7 @@
         - "Systematic study of OH / UNA / BIN / BIN+DECOMP encodings for non-linear integer programming"
         - "Built NLIP_filters pipeline across 5 source libraries (QPLIB, NL, SMT-LIB, CSPlib, XCSP)"
         - "Benchmarks: QPLIB (137), SMT-LIB QF_NIA (2591), Diverse-SAT (287)"
+        - "Paper submitted to SAT 2026 (CCF-B); collaboration with Prof. Saïd Cherif, Université de Picardie Jules Verne"
 
     - title: Fair-Ratio / UNB-MT
       year: 2026 — Present

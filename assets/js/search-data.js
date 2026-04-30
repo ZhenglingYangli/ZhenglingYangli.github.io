@@ -223,16 +223,31 @@ ninja.data = [{
             window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
           
         },
-      },{id: "books-handbook-of-satisfiability-2nd-edition",
-          title: 'Handbook of Satisfiability (2nd Edition)',
+      },{id: "books-algorithm-design",
+          title: 'Algorithm Design',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/handbook_of_satisfiability/";
+              window.location.href = "/books/algorithm_design/";
             },},{id: "books-combinatorial-optimization-polyhedra-and-efficiency",
           title: 'Combinatorial Optimization — Polyhedra and Efficiency',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/combinatorial_optimization/";
+            },},{id: "books-",
+          title: '',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/computational_complexity/";
+            },},{id: "books-handbook-of-satisfiability-2nd-edition",
+          title: 'Handbook of Satisfiability (2nd Edition)',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/handbook_of_satisfiability/";
+            },},{id: "books-fair-division-from-cake-cutting-to-dispute-resolution",
+          title: 'Fair Division: From Cake-Cutting to Dispute Resolution',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/fair_division/";
             },},{id: "news-目前已累计-12-项竞赛奖项-包括全国大学生计算机能力挑战赛一等奖-华教杯全国大学生数学竞赛一等奖-以及-acm-icpc-区域赛铜牌等",
           title: '目前已累计 12 项竞赛奖项，包括全国大学生计算机能力挑战赛一等奖、华教杯全国大学生数学竞赛一等奖，以及 ACM-ICPC 区域赛铜牌等。',
           description: "",

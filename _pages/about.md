@@ -22,7 +22,7 @@ announcements:
 latest_posts:
   enabled: true
   limit: 5
-selected_papers: true
+selected_papers: false
 social: true
 ---
 

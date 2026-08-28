@@ -17,7 +17,7 @@ profile:
     <p>Yunnan University · Kunming</p>
 
 announcements:
-  enabled: true
+  enabled: false
   limit: 5
 latest_posts:
   enabled: true

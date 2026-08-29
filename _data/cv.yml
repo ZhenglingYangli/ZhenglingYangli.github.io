@@ -40,7 +40,7 @@
         - "系统研究非线性整数规划的 OH/UNA/BIN/BIN+DECOMP 编码方案"
         - "构建 NLIP_filters 流水线，覆盖 5 个源库（QPLIB、NL、SMT-LIB、CSPlib、XCSP）"
         - "基准：QPLIB (137)、SMT-LIB QF_NIA (2591)、Diverse-SAT (287)"
-        - "论文已投 SAT 2026（CCF-B）；与法国皮卡第儒勒·凡尔纳大学 Saïd Cherif 教授合作"
+        - "第一作者论文 NLIPSat 已发表于 SAT 2026（CCF-B）；合作者来自中国人民大学与法国皮卡第儒勒·凡尔纳大学"
 
     - title: Fair-Ratio / UNB-MT
       year: 2026 — 至今

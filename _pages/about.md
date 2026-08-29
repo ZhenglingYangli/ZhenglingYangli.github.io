@@ -30,6 +30,12 @@ Zhengling Yangli (杨李正凌) is an undergraduate student of Statistics at [Yu
 
 Her research focuses on combinatorial optimization and Boolean satisfiability solving. She prefers to start from concrete empirical anomalies, work out first-principles mechanisms, and design the next experimental intervention from there.
 
+#### Highlights
+
+- **Ranked 1st out of 102** students in her cohort (GPA: 3.79/4.0).
+- **First author of [NLIPSat]({{ '/publications/' | relative_url }})**, published at SAT 2026. [Paper](https://doi.org/10.4230/LIPIcs.SAT.2026.43) · [Code](https://github.com/ZhenglingYangli/NLIPSat-Toolkit)
+- Research collaboration with Renmin University of China and Université de Picardie Jules Verne on nonlinear integer programming and MaxSAT.
+
 #### Research Interests
 
 - **SAT / MaxSAT** — diverse model enumeration and MaxSAT encodings of non-linear integer programs. [DiverseSAT]({{ '/projects/2_diversesat/' | relative_url }}) · [NLIP]({{ '/projects/3_nlip/' | relative_url }})

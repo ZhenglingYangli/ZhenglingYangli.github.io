@@ -17,7 +17,7 @@ profile:
     <p>云南大学 · 昆明</p>
 
 announcements:
-  enabled: true
+  enabled: false
   limit: 5
 latest_posts:
   enabled: true
@@ -30,6 +30,12 @@ social: true
 
 主要研究方向是组合优化与 Boolean satisfiability 求解。方法上偏好从具体的实验异常出发，先在第一性原理层面给出机制解释，再据此设计干预实验。
 
+#### 个人亮点
+
+- **年级排名 1/102**（GPA：3.79/4.0）。
+- **SAT 2026 论文 [NLIPSat]({{ '/publications/' | relative_url }}) 第一作者**。[论文](https://doi.org/10.4230/LIPIcs.SAT.2026.43) · [代码](https://github.com/ZhenglingYangli/NLIPSat-Toolkit)
+- 与中国人民大学、法国皮卡第儒勒·凡尔纳大学合作开展非线性整数规划与 MaxSAT 研究。
+
 #### 研究方向
 
 - **SAT / MaxSAT** — 多样性模型枚举与非线性整数规划的 MaxSAT 编码。 [DiverseSAT]({{ '/projects/2_diversesat/' | relative_url }}) · [NLIP]({{ '/projects/3_nlip/' | relative_url }})
@@ -37,4 +43,4 @@ social: true
 - **公平分配** — partial-access 场景下多资源公平分配的扩展机制。 [UNB-MT]({{ '/projects/4_fairmt/' | relative_url }})
 - **应用项目** — 检索增强推理、EEG 可穿戴信号分析、市场建模。 [全部项目]({{ '/projects/#applied' | relative_url }})
 
-研究笔记与踩坑记录：[过程思考]({{ '/notes/' | relative_url }}) ·  [完整简历]({{ '/cv/' | relative_url }})
+研究笔记与踩坑记录：[过程思考]({{ '/notes/' | relative_url }}) · [完整简历]({{ '/cv/' | relative_url }})

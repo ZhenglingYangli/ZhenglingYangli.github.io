@@ -35,22 +35,25 @@
   note      = {Submitted to JAIR},
 }
 
-@article{yang2026nlip,
-  abbr      = {Under Review},
-  title     = {Encoding Non-linear Integer Programs into Weighted {MaxSAT}: A Systematic Study},
-  author    = {Yangli, Zhengling and Cherif, Saïd and others},
-  journal   = {Under Review},
+@inproceedings{yangli2026nlipsat,
+  abbr      = {SAT 2026},
+  title     = {{NLIPSat}: Satisfiability-Based Nonlinear Integer Programming Encoding Toolkit},
+  author    = {Yangli, Zhengling and Zheng, Zhifei and Cherif, Sami and Shibasaki, Rui Sá and Li, Chu-Min},
+  booktitle = {29th International Conference on Theory and Applications of Satisfiability Testing (SAT 2026)},
+  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  volume    = {377},
+  pages     = {43:1--43:13},
   year      = {2026},
-  selected  = {false},
-  note      = {Submitted to SAT 2026 (CCF-B)},
-  abstract  = {We investigate the encoding of non-linear integer programs (NLIP)
-               --- polynomial objectives and constraints over bounded integer
-               variables --- into weighted MaxSAT. Four encoding families are studied
-               (one-hot, unary, binary, and binary with order decomposition) and
-               evaluated on QPLIB (137), SMT-LIB QF\_NIA (2591) and Diverse-SAT (287)
-               benchmarks against Z3, CPLEX and CaDiCaL baselines. We identify when
-               MaxSAT-based encoding dominates and diagnose a fundamental limitation
-               of unary encoding at large domain sizes.}
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum für Informatik},
+  selected  = {true},
+  doi       = {10.4230/LIPIcs.SAT.2026.43},
+  html      = {https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SAT.2026.43},
+  pdf       = {https://drops.dagstuhl.de/storage/00lipics/lipics-vol377-sat2026/LIPIcs.SAT.2026.43/LIPIcs.SAT.2026.43.pdf},
+  code      = {https://github.com/ZhenglingYangli/NLIPSat-Toolkit},
+  abstract  = {NLIPSat is the first open-source tool for encoding bounded polynomial
+               nonlinear integer programming instances directly into MaxSAT. It supports
+               polynomial objectives and hard nonlinear constraints, exports standard
+               WCNF, and substantially outperforms Z3 on the reported benchmarks.}
 }
 
 @article{yang2026antqo,

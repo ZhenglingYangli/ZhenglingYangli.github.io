@@ -18,23 +18,23 @@ related_publications: true
 
 把 NLIP 编码为**加权 MaxSAT**（WCNF），借助现代 MaxSAT 求解器。我们系统研究四种整数变量的布尔编码方案：
 
-| 编码     | 域表示                                  | 强项                                   |
-| -------- | --------------------------------------- | -------------------------------------- |
-| OH       | One-hot —— 每个整数值一个布尔            | 域线性, propagation 强                  |
-| UNA      | Unary / thermometer                     | 顺序结构干净；大域下崩溃                 |
-| BIN      | Binary —— 每变量 $\log_2 D$ 个布尔        | 紧凑但 propagation 弱                    |
-| DECOMP   | Binary + Order Decomposition            | 紧凑且 propagation 改善                  |
+| 编码   | 域表示                             | 强项                     |
+| ------ | ---------------------------------- | ------------------------ |
+| OH     | One-hot —— 每个整数值一个布尔      | 域线性, propagation 强   |
+| UNA    | Unary / thermometer                | 顺序结构干净；大域下崩溃 |
+| BIN    | Binary —— 每变量 $\log_2 D$ 个布尔 | 紧凑但 propagation 弱    |
+| DECOMP | Binary + Order Decomposition       | 紧凑且 propagation 改善  |
 
 封装的求解器：RC2 (PySAT)、MaxHS、WMaxCDCL、OpenWBO、CaDiCaL（暴力枚举 baseline）。
 对照基线：**Z3**（SMT 直接求 `QF_NIA`）以及 **CPLEX**（仅在 degree ≤ 2 实例上）。
 
 ## Benchmark
 
-| 来源              | 规模 | 类型                                |
-| ----------------- | ---- | ----------------------------------- |
-| QPLIB             | 137  | quadratic / 非线性整数规划            |
-| SMT-LIB QF_NIA    | 2591 | 非线性整数算术                       |
-| Diverse-SAT 转换  | 287  | 转化的 SAT 实例                      |
+| 来源             | 规模 | 类型                       |
+| ---------------- | ---- | -------------------------- |
+| QPLIB            | 137  | quadratic / 非线性整数规划 |
+| SMT-LIB QF_NIA   | 2591 | 非线性整数算术             |
+| Diverse-SAT 转换 | 287  | 转化的 SAT 实例            |
 
 一个五库过滤管线（`NLIP_filters`）从 QPLIB / NL / SMT / CSPlib / XCSP 中抽取符合 NLIP 形态的问题；解析器 `qplib_parser` 与 `smt2_parser` 负责导入；`main.py` 串起 preprocessing + encoding + solver call，每个实例输出一行标准化的 `>>>` 摘要。`goSolver.py` 配合 SLURM 调度批量实验，统一 7200s timeout，外置 7500s SIGKILL bound。
 
@@ -46,7 +46,11 @@ related_publications: true
 
 ## 合作与进展
 
-本项目是与法国皮卡第大学（Université de Picardie Jules Verne）[Saïd Cherif](https://home.mis.u-picardie.fr/~cherif/) 教授的合作研究。经过约一年的基准构建与编码设计，论文草稿已提交 **SAT 2026**（CCF-B）。
+本项目由本人作为第一作者，与中国人民大学 Zhifei Zheng，以及法国皮卡第大学（Université de Picardie Jules Verne）的 [Sami Cherif](https://home.mis.u-picardie.fr/~cherif/)、Rui Sá Shibasaki、Chu-Min Li 合作完成。工具论文 **NLIPSat: Satisfiability-Based Nonlinear Integer Programming Encoding Toolkit** 已正式发表于 **SAT 2026**（CCF-B）。
+
+- [正式论文与出版信息](https://doi.org/10.4230/LIPIcs.SAT.2026.43)
+- [PDF](https://drops.dagstuhl.de/storage/00lipics/lipics-vol377-sat2026/LIPIcs.SAT.2026.43/LIPIcs.SAT.2026.43.pdf)
+- [开源代码](https://github.com/ZhenglingYangli/NLIPSat-Toolkit)
 
 ## 已知的设计细节
 

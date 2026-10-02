@@ -206,3 +206,7 @@
     crossorigin="anonymous"
   >
 {% endif %}
+
+{% if page.layout == 'about' %}
+  <link rel="stylesheet" href="{{ '/assets/css/public-profile.css' | relative_url | bust_file_cache }}">
+{% endif %}

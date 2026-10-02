@@ -51,12 +51,12 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/notes/";
               },
-            },{id: "dropdown-applied-projects",
-              title: "Applied Projects",
+            },{id: "dropdown-cv",
+              title: "CV",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/projects/#applied";
+                window.location.href = "/cv/";
               },
             },{id: "dropdown-awards",
               title: "Awards",
@@ -65,12 +65,26 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/awards/";
               },
-            },{id: "dropdown-updates",
-              title: "Updates",
+            },{id: "dropdown-applied-projects",
+              title: "Applied Projects",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/comp-news/";
+                window.location.href = "/projects/#applied";
+              },
+            },{id: "dropdown-个人简历",
+              title: "个人简历",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/cv/";
+              },
+            },{id: "dropdown-精选荣誉",
+              title: "精选荣誉",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/awards/";
               },
             },{id: "dropdown-应用项目",
               title: "应用项目",
@@ -78,62 +92,6 @@ ninja.data = [{
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/projects/#applied";
-              },
-            },{id: "dropdown-获得奖项",
-              title: "获得奖项",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/awards/";
-              },
-            },{id: "dropdown-比赛动态",
-              title: "比赛动态",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/comp-news/";
-              },
-            },{id: "dropdown-news",
-              title: "News",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/life-news/";
-              },
-            },{id: "dropdown-bookshelf",
-              title: "Bookshelf",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/books/";
-              },
-            },{id: "dropdown-opinions",
-              title: "Opinions",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/opinions/";
-              },
-            },{id: "dropdown-动态",
-              title: "动态",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/life-news/";
-              },
-            },{id: "dropdown-书架",
-              title: "书架",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/books/";
-              },
-            },{id: "dropdown-观点",
-              title: "观点",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/opinions/";
               },
             },{id: "post-dual-bound-search-中-lb-数值收紧与-opt-的脱耦",
         
@@ -324,7 +282,7 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%79%6C%7A%6C@%6D%61%69%6C.%79%6E%75.%65%64%75.%63%6E", "_blank");
+          window.open("mailto:%79%61%6E%67%6C%69%7A%68%65%6E%67%6C%69%6E%67@%73%74%75.%79%6E%75.%65%64%75.%63%6E", "_blank");
         },
       },{
         id: 'social-github',

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Life
-nav: true
+nav: false
 nav_order: 3
 dropdown: true
 permalink: /life/

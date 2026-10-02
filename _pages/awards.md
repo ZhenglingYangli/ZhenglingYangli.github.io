@@ -8,7 +8,7 @@ lang: zh
 ---
 
 {% for section in site.data.cv %}
-  {% if section.title contains 'Award' or section.title contains 'Honor' %}
-    {% include cv-section.liquid section=section hide_title=true %}
-  {% endif %}
+{% if section.title contains 'Award' or section.title contains 'Honor' or section.title contains '奖项' or section.title contains '荣誉' %}
+{% include cv-section.liquid section=section hide_title=true %}
+{% endif %}
 {% endfor %}

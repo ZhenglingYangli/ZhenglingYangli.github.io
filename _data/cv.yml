@@ -3,8 +3,10 @@
   contents:
     - name: 姓名
       value: 杨李正凌（Zhengling Yangli）
+    - name: 邮箱
+      value: yanglizhengling@stu.ynu.edu.cn
     - name: 语言
-      value: 中文（母语）、英语（学术读写）
+      value: 中文、英语
 
 - title: 教育经历
   type: time_table
@@ -13,89 +15,60 @@
       institution: 云南大学 数学与统计学院
       year: 2024 — 至今
       description:
-        - "GPA：3.79 / 4.0 &nbsp;·&nbsp; 年级排名：1 / 102"
-        - "主修课程：数学分析、概率论与数理统计、运筹学、C++ 程序设计、R、Python"
+        - "GPA：3.79；大一综合素质测评排名：1 / 102（学院 2026 年 4 月证明）"
+        - "课程与训练：数学分析、概率论与数理统计、运筹学、程序设计与统计建模"
 
-- title: 科研经历
+- title: 代表研究
   type: time_table
   contents:
-    - title: MWDS / Ant-Q 双界搜索插件
-      year: 2026 — 至今
+    - title: NLIPSat
+      year: SAT 2026 · 已发表
       description:
-        - "将蚂蚁群落 + Q-Learning 模块嵌入 ECAI-2025 基线 Dual-Deep / Dual-Fast 的下界侧对构造"
-        - "最优变体 Deep-v6 与 Fast-v19：两个测试集上 Deep 行平均 gap 降低 23.7%–31.2%，Fast 降低 6.9%–9.9%"
-        - "逐实例 gap 胜率最高达 99.37%；通过硬规约识别了 LB→UB 耦合瓶颈"
-
-    - title: DiverseSAT（期刊版）
-      year: 2025 — 至今
+        - "第一作者；有界多项式非线性整数规划到 MaxSAT 的编码工具"
+        - "与中国人民大学、法国皮卡第儒勒·凡尔纳大学的合作者共同开展研究"
+        - "参加里斯本 FloC / SAT 2026 学术交流；DOI：10.4230/LIPIcs.SAT.2026.43"
+    - title: Learning Instance-Specific Reduction Policies for the Minimum Hitting Set Problem
+      year: PRICAI 2026 · 已录用
       description:
-        - "基于 DW/IW 阈值编码 + 二进制提升/二分搜索/SAT-UNSAT 的 k-diverse SAT 模型枚举"
-        - "利用偏解的模型感知细化"
-        - "基准：7 类共 289 个实例（ais、flat100±、hardware、logistics、mc2024、morphed）"
-        - "目标投稿 JAIR"
-
-    - title: NLIP → MaxSAT
-      year: 2025 — 至今
+        - "最小击中集问题的实例特定规约策略研究"
+        - "录用依据：2026 年 8 月会议录用邮件；正式出版信息待补充"
+    - title: 组合优化与公平资源分配
+      year: 持续探索
       description:
-        - "系统研究非线性整数规划的 OH/UNA/BIN/BIN+DECOMP 编码方案"
-        - "构建 NLIP_filters 流水线，覆盖 5 个源库（QPLIB、NL、SMT-LIB、CSPlib、XCSP）"
-        - "基准：QPLIB (137)、SMT-LIB QF_NIA (2591)、Diverse-SAT (287)"
-        - "第一作者论文 NLIPSat 已发表于 SAT 2026（CCF-B）；合作者来自中国人民大学与法国皮卡第儒勒·凡尔纳大学"
-
-    - title: Fair-Ratio / UNB-MT
-      year: 2026 — 至今
+        - "研究搜索、规约与多资源分配中的结构性问题"
+        - "通过推导、程序实现和对照实验分析方法的适用范围"
+    - title: MathRAG 数学智能解题系统
+      year: 本科项目
       description:
-        - "将 DRF-MT（IJCAI 2021）扩展至元类型可达性，引入 UNB 机制"
-        - "证明了 SI、组内 EF 及少数群体→多数群体 EF；分析偏访问条件下线性 EF 充分条件的失效"
-        - "元类型基准上社会福利比 DRF-MT 提升 2%–6%"
+        - "参与并领导检索增强的数学问答系统开发，连接方法设计与系统实现"
 
-    - title: MathRAG
-      year: 2025
-      description:
-        - "基于 Qwen2-Math 骨干的检索增强数学推理系统"
-        - "GSM8K 约 94%，MATH 约 89%"
-        - "全栈实现（Vue 前端，Node.js + Redis 后端）"
-
-    - title: 正念 × EEG 可穿戴设备
-      year: 2024 — 2025
-      description:
-        - "国家级大学生创新创业训练计划（大创）"
-        - "通过 EEG 可穿戴信号 + 标准化心理健康问卷量化正念冥想效果"
-        - "2025 年 10 月结题"
-
-- title: 获奖情况
+- title: 精选奖项与荣誉
   type: time_table
   contents:
+    - year: 2026
+      items:
+        - "第十二届全国大学生统计建模大赛全国总决赛二等奖"
+        - "2025—2026 学年云南省级五好学生"
     - year: 2025
       items:
-        - "【国家级 · 一等奖】全国大学生计算机能力挑战赛"
-        - "【国家级 · 一等奖】第七届华教杯全国数学竞赛（非数学专业赛道）决赛"
-        - '【国家级 · 一等奖】外研社·国才杯"理解当代中国"英语综合能力大赛'
-        - "【国家级 · 铜牌】ACM-ICPC 国际大学生程序设计竞赛"
-        - "【国家级 · 三等奖】全国大学英语竞赛（C 类）"
-        - "【省级 · 一等奖】全国大学生数学竞赛（高数组）"
-        - "【省级 · 一等奖】全国大学生数学建模竞赛"
-        - "【省级 · 一等奖】全国大学生计算机应用与信息素养大赛"
-        - "【省级 · 二等奖】CCCC（GPLT）团体程序设计天梯赛"
-        - "【省级 · 三等奖】第十八届帆·浪潮杯中国大学生计算机设计大赛（云南赛区）"
-        - "【省级 · 三等奖】蓝桥杯软件和信息技术人才大赛"
-    - year: 2024
-      items:
-        - "【国家级 · 三等奖】全国大学生英语翻译大赛（大学生组）"
+        - "第七届全国高校计算机能力挑战赛程序设计挑战赛 Python 科目全国决赛一等奖"
+        - "全国大学生数学建模竞赛省级一等奖"
+        - "富滇银行奖学金（2024—2025 学年）"
 
-- title: 技能
+- title: 实践与表达
+  type: list
+  contents:
+    - "学院辩论队队长"
+    - "美丽中国梦想导师项目志愿服务"
+
+- title: 技能与工具
   type: nested_list
   contents:
-    - title: 编程语言
+    - title: 编程与分析
       items:
-        - Python、C / C++、R、TypeScript / JavaScript
-        - LaTeX
-    - title: 科研工具
+        - Python、C / C++、R
+        - LaTeX、统计建模与实验分析
+    - title: 研究与实现
       items:
-        - SAT / MaxSAT — PySAT、MaxHS、WMaxCDCL、OpenWBO、CaDiCaL、RoundingSAT
-        - SMT / ILP — Z3、CPLEX
-        - 基准测试 — SLURM 作业调度、自定义批量运行器
-    - title: 工程技术
-      items:
-        - 前端 / 全栈 — Astro、Express、Vue、Node.js、Redis
-        - 数据分析 — Pandas、NumPy、SciPy、ggplot2、NetworkX
+        - SAT / MaxSAT 编码、组合优化、基准实验
+        - 检索增强问答与 Web 系统开发

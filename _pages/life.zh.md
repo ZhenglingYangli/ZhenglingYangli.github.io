@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 生活
-nav: true
+nav: false
 nav_order: 3
 dropdown: true
 permalink: /zh/life/

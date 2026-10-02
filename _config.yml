@@ -2,12 +2,12 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Zhengling Yangli's Homepage
+title: Zhengling Yangli · 杨李正凌
 first_name: Zhengling
 middle_name:
 last_name: Yangli
 contact_note: >
-  Email is the most reliable way to reach me. Replies usually within 24h on weekdays.
+  Research, projects, and learning — feel free to get in touch by email.
 description: >
   Undergraduate at School of Mathematics and Statistics, Yunnan University.
   Research on SAT / MaxSAT, combinatorial optimization, and fair resource allocation.
@@ -15,12 +15,12 @@ footer_text: >
   © 2026 Zhengling Yangli &middot;
   Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> + <a href="https://github.com/alshedivat/al-folio">al-folio</a> &middot;
   Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+keywords: Zhengling Yangli, 杨李正凌, statistics, combinatorial optimization, MaxSAT, Yunnan University
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ☕ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://zhenglingyangli.github.io
-baseurl:    # empty for root domain
+baseurl: # empty for root domain
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button

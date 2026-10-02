@@ -7,10 +7,10 @@ dropdown: true
 permalink: /zh/competitions/
 lang: zh
 children:
+  - title: 个人简历
+    permalink: /cv/
+  - title: 精选荣誉
+    permalink: /awards/
   - title: 应用项目
     permalink: /projects/#applied
-  - title: 获得奖项
-    permalink: /awards/
-  - title: 比赛动态
-    permalink: /comp-news/
 ---

@@ -1,86 +1,64 @@
 ---
 layout: default
 ---
-<div class="post public-profile">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+{% assign is_zh = false %}
+{% if page.lang == 'zh' %}{% assign is_zh = true %}{% endif %}
+<div class="public-profile">
+  <header class="profile-hero">
+    <div class="hero-copy">
+      <p class="profile-eyebrow">
+        {% if is_zh %}云南大学 · 统计学 · 2024 级{% else %}Yunnan University · Statistics · Class of 2024{% endif %}
+      </p>
+      <h1>
+        {% if is_zh -%}
+          杨李正凌<span class="name-secondary">Zhengling Yangli</span>
+        {%- else -%}
+          Zhengling Yangli<span class="name-secondary">杨李正凌</span>
+        {%- endif %}
+      </h1>
+      <p class="hero-statement">{{ page.headline }}</p>
+      <p class="hero-intro">{{ page.intro }}</p>
+      <div class="profile-actions">
+        <a class="profile-button primary" href="#research">
+          {%- if is_zh %}认识我的研究{% else %}Explore my research{% endif %}
+          <span aria-hidden="true">↘</span></a
+        >
+        <a class="profile-button" href="{{ '/cv/' | relative_url }}">
+          {%- if is_zh %}个人简历{% else %}View CV{% endif %}
+          <span aria-hidden="true">↗</span></a
+        >
+        <a class="profile-text-link" href="#contact">
+          {%- if is_zh %}联系我{% else %}Get in touch{% endif -%}
+        </a>
+      </div>
+    </div>
+    <figure class="hero-portrait">
+      {% assign portrait = page.profile.image | prepend: 'assets/img/' %}
+      {% include figure.liquid loading='eager' path=portrait class='portrait-image' sizes='(max-width: 767px) 128px, 210px' alt='Zhengling Yangli / 杨李正凌' cache_bust=true %}
+      <figcaption>
+        {% if is_zh -%}
+          数学与统计学院<br>
+          云南大学 · 昆明
+        {%- else -%}
+          School of Mathematics and Statistics<br>
+          Kunming, China
+        {%- endif %}
+      </figcaption>
+    </figure>
   </header>
-
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="clearfix">{{ content }}</div>
-
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">
-          {%- if page.lang == 'zh' %}近期动态{% else %}news{% endif -%}
-        </a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">
-          {%- if page.lang == 'zh' %}最新文章{% else %}latest posts{% endif -%}
-        </a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">
-          {%- if page.lang == 'zh' %}代表论文{% else %}selected publications{% endif -%}
-        </a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
-  </article>
+  <nav class="profile-sections" aria-label="{% if is_zh %}本页目录{% else %}On this page{% endif %}">
+    <a href="#research">
+      {%- if is_zh %}代表研究{% else %}Research{% endif -%}
+    </a>
+    <a href="#journey">
+      {%- if is_zh %}我的路径{% else %}My path{% endif -%}
+    </a>
+    <a href="#experience">
+      {%- if is_zh %}精选经历{% else %}Experience{% endif -%}
+    </a>
+    <a href="#contact">
+      {%- if is_zh %}联系{% else %}Contact{% endif -%}
+    </a>
+  </nav>
+  <article class="profile-content">{{ content }}</article>
 </div>

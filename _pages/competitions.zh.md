@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 比赛
+title: 经历
 nav: true
 nav_order: 2
 dropdown: true

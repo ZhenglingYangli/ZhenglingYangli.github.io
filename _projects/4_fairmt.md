@@ -28,7 +28,7 @@ DRF-MT (Yin et al., IJCAI 2021) 在该模型下同时满足 share-incentive (SI)
 
 把 Bei et al. (2022, two-resource setting) 的 UNB 机制适配到 meta-type 模型：
 
-1. 按 dominant meta-type 把租户切成 *majority group* $G_{\text{maj}}$ 与 *minority group* $G_{\text{min}}$；
+1. 按 dominant meta-type 把租户切成 _majority group_ $G_{\text{maj}}$ 与 _minority group_ $G_{\text{min}}$；
 2. 把 majority 群体压缩到 $y_{\text{base}} = \alpha y_{\text{SI}} + (1-\alpha) y_{\text{DRF}}$，参数 $\alpha \in [0, 1]$ 可调；
 3. 在剩余资源上对 minority 跑标准 DRF-MT。
 

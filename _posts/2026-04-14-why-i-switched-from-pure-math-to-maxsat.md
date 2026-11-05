@@ -13,12 +13,12 @@ categories: opinion
 
 ## 一次具体观察
 
-大一暑期参与一个组合优化方向的小项目（MWDS 的 reduction 分析）。在该项目中遇到的核心问题之一可表述为：给定一个 reduction $r$，能否预测它在 BHOSLIB 这一类难 instance 上对 UB 的实际收紧？此时我能给出 $r$ 在抽象层面对 LB 的单调性证明，但无法给出对 *经验* UB 行为的预测。该问题的答案不是从 $r$ 的形式定义中导出的，它依赖 instance 分布、求解器实现、缓存层级、时间预算这些 *外生* 因素。
+大一暑期参与一个组合优化方向的小项目（MWDS 的 reduction 分析）。在该项目中遇到的核心问题之一可表述为：给定一个 reduction $r$，能否预测它在 BHOSLIB 这一类难 instance 上对 UB 的实际收紧？此时我能给出 $r$ 在抽象层面对 LB 的单调性证明，但无法给出对 _经验_ UB 行为的预测。该问题的答案不是从 $r$ 的形式定义中导出的，它依赖 instance 分布、求解器实现、缓存层级、时间预算这些 _外生_ 因素。
 
 由此意识到的不仅是"理论结论与实验结果之间存在 gap"——这早就清楚——而是**两类研究问题在反馈结构上是不同的**：
 
-- *Closed system* 问题（典型为代数几何中的某一证明）：判定准则在公理系统内部，正确性可在有限步骤内确认。
-- *Open system* 问题（典型为算法在真实 instance 分布上的行为）：判定准则部分位于系统外部（数据分布、硬件、时间），需要不断与外部信号对照。
+- _Closed system_ 问题（典型为代数几何中的某一证明）：判定准则在公理系统内部，正确性可在有限步骤内确认。
+- _Open system_ 问题（典型为算法在真实 instance 分布上的行为）：判定准则部分位于系统外部（数据分布、硬件、时间），需要不断与外部信号对照。
 
 当时的判断是：自己更适合做 open system 类型的问题。这并非价值判断，而是关于研究反馈节奏的偏好——open system 中"小动作 → 立刻看到反馈"的循环更短，更容易支撑长期投入。
 
@@ -26,7 +26,7 @@ categories: opinion
 
 在 open system 内部仍有许多分支可选。MaxSAT 求解之所以成为目前的主线，原因有以下三点：
 
-- **理论与实证并存**：MaxSAT 同时具备清晰的近似界 / 硬度结果与活跃的实证算法社区。Bonet–Levy 的 *Logic in Computer Science* 第 11 章给出对 SAT 的形式化处理，Marques-Silva 的综述梳理了现代 CDCL 的实证演进。两者并存意味着可以在同一个问题上两边走。
+- **理论与实证并存**：MaxSAT 同时具备清晰的近似界 / 硬度结果与活跃的实证算法社区。Bonet–Levy 的 _Logic in Computer Science_ 第 11 章给出对 SAT 的形式化处理，Marques-Silva 的综述梳理了现代 CDCL 的实证演进。两者并存意味着可以在同一个问题上两边走。
 - **底层结构清晰**：CNF 这一表示形式简单到可以直接讨论 propagation 与 conflict learning，但又足以表达大量组合问题（dominating sets, integer programs, model counting 等）。这种底层简洁性降低了"理论与实现之间转换"的成本。
 - **基线竞争激烈**：现代 SAT / MaxSAT 求解器（kissat、CASHWMaxSAT、WMaxCDCL 等）在实证基准上的差距足够小，新方法的 marginal contribution 必须在相同 setting 下严格证明，避免出现"看似有效但取决于 hyperparameter"的退化。
 
@@ -45,7 +45,7 @@ categories: opinion
 
 ## 一句不算总结的话
 
-研究方向转向并不要求对原方向的全盘否认。代数几何为我提供了对 *正确性* 的标准；现在把这一标准用在不同的对象上。
+研究方向转向并不要求对原方向的全盘否认。代数几何为我提供了对 _正确性_ 的标准；现在把这一标准用在不同的对象上。
 
 ## 引用
 

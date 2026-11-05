@@ -9,9 +9,9 @@ categories: research
 
 ## 设置
 
-在 NLIP via MaxSAT 项目中，需要把多项式整数规划（QPLIB / SMT-LIB QF\_NIA）编码为加权 MaxSAT。我们考虑过四种编码（OH / UNA / BIN / Order-Decomposition），其中 *BIN encoding* 把每个整数变量 $x \\in [\\ell, u]$ 表示为 $\\lceil \\log_2 (u - \\ell + 1) \\rceil$ 位布尔，并通过 partial-product 与 carry chain 实现乘法。
+在 NLIP via MaxSAT 项目中，需要把多项式整数规划（QPLIB / SMT-LIB QF\_NIA）编码为加权 MaxSAT。我们考虑过四种编码（OH / UNA / BIN / Order-Decomposition），其中 _BIN encoding_ 把每个整数变量 $x \\in [\\ell, u]$ 表示为 $\\lceil \\log_2 (u - \\ell + 1) \\rceil$ 位布尔，并通过 partial-product 与 carry chain 实现乘法。
 
-BIN encoding 的常见实现假设 $x \\ge 0$，即变量按 *unsigned* 位形式表示。在 $\\ell < 0$ 的实例上，需要选择某种二进制补码或 sign–magnitude 表示，并在乘法步骤中相应处理符号。对此处理不当会在 $xy$ 项上引入符号错误，且这一错误并不在常规 sanity check 中被自然暴露。
+BIN encoding 的常见实现假设 $x \\ge 0$，即变量按 _unsigned_ 位形式表示。在 $\\ell < 0$ 的实例上，需要选择某种二进制补码或 sign–magnitude 表示，并在乘法步骤中相应处理符号。对此处理不当会在 $xy$ 项上引入符号错误，且这一错误并不在常规 sanity check 中被自然暴露。
 
 ## 表现
 

@@ -9,13 +9,13 @@ categories: research
 
 ## 问题
 
-给定 CNF 公式 $F$ 与正整数 $k$，*Diverse SAT* 要求找到 $k$ 个满足赋值 $\\mathbf{x}_1, \\ldots, \\mathbf{x}_k$，最大化某种多样性度量（典型地，逐对 Hamming 距离之和）：
+给定 CNF 公式 $F$ 与正整数 $k$，_Diverse SAT_ 要求找到 $k$ 个满足赋值 $\\mathbf{x}_1, \\ldots, \\mathbf{x}_k$，最大化某种多样性度量（典型地，逐对 Hamming 距离之和）：
 
 $$
 \\max_{\\mathbf{x}_1, \\ldots, \\mathbf{x}_k}\\ \\sum_{1 \\le j < j' \\le k}\\ d_H(\\mathbf{x}_j, \\mathbf{x}_{j'}) \\quad \\text{s.t.}\\quad F(\\mathbf{x}_j) = 1\\ \\forall j.
 $$
 
-这与"先求 SAT，再返回任意 $k$ 个解"是不同的问题：后者关心 *是否能找到* $k$ 个满足赋值，前者关心这 $k$ 个赋值在解空间中的分布。
+这与"先求 SAT，再返回任意 $k$ 个解"是不同的问题：后者关心 _是否能找到_ $k$ 个满足赋值，前者关心这 $k$ 个赋值在解空间中的分布。
 
 最初提出 Diverse SAT 时，常见的怀疑是它属于 enumeration 的变体；JAIR 投稿过程中收到的 reviewer 意见也集中在动机层面，例如「多样性是否构成一个独立的研究目标」。下面给出两个常见应用，说明在这些应用中"$k$ 个最大化差异的解"是问题本身，而不是 enumeration 之上的修饰。
 
@@ -44,15 +44,15 @@ $$
 2. 任何先求 SAT、再 ex post 选 $k$ 个差异最大的子集的方案，要先列举一个充分大的解候选池；当 $|F^{-1}(1)|$ 巨大时，这一步本身就变得不可行。
 3. 直接编码 Diverse SAT（如 DW / IW 阈值编码）允许把 cardinality / totalizer 结构与 CDCL 的 conflict learning 配合，避免穷举候选池。
 
-把 Diverse SAT 视为 *source problem*，意味着可以为每个下游应用提供统一的入口；下游算法本身仅是从这个 source problem 的输入端到输出端的一个适配器。
+把 Diverse SAT 视为 _source problem_，意味着可以为每个下游应用提供统一的入口；下游算法本身仅是从这个 source problem 的输入端到输出端的一个适配器。
 
 ## 与现有方法的对照
 
 近年若干工作在解集多样性上有相关努力：
 
-- *kissat-mab* 等 SAT 求解器关注单一解的求解效率，未涉及多解多样性目标；
-- *bplmcs / projected model counting* 关注解的计数而非选解的分布；
-- *MUS / MCS* 主题关注极小不可满足子集，与多样性问题在目标函数与对偶性结构上均不同。
+- _kissat-mab_ 等 SAT 求解器关注单一解的求解效率，未涉及多解多样性目标；
+- _bplmcs / projected model counting_ 关注解的计数而非选解的分布；
+- _MUS / MCS_ 主题关注极小不可满足子集，与多样性问题在目标函数与对偶性结构上均不同。
 
 将 Diverse SAT 与这些工作放在一起对比，能看到它处于一个"既不是 SAT 求解器，也不是 model counting"的位置，而其下游应用恰好需要这个中间地带。
 

@@ -8,5 +8,5 @@ lang: zh
 ---
 
 {% for section in site.data.cv %}
-  {% include cv-section.liquid section=section %}
+{% include cv-section.liquid section=section %}
 {% endfor %}

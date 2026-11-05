@@ -9,7 +9,7 @@ categories: research
 
 ## 设置
 
-考虑 $n$ 个租户共享 $m$ 个可分割资源的多资源公平分配问题。资源被划分为若干 *meta-type* $\\Omega_1, \\dots, \\Omega_L$，租户 $i$ 对 meta-type $l$ 的可访问集为 $g_l^i \\subseteq \\Omega_l$。租户的需求向量 $d_{il}$ 与效用函数采用 Leontief 形式：
+考虑 $n$ 个租户共享 $m$ 个可分割资源的多资源公平分配问题。资源被划分为若干 _meta-type_ $\\Omega_1, \\dots, \\Omega_L$，租户 $i$ 对 meta-type $l$ 的可访问集为 $g_l^i \\subseteq \\Omega_l$。租户的需求向量 $d_{il}$ 与效用函数采用 Leontief 形式：
 
 $$
 u_i(x_i) \\;=\\; \\min_{l: d_{il} > 0}\\ \\frac{\\sum_{r \\in g_l^i} x_{ir}}{d_{il}}.
@@ -50,20 +50,20 @@ PairEF-auto 把 EF 约束 $u_i(x_i) \\ge u_i(x_j)\\ \\forall i \\ne j$ 转化为
 为什么 Lemma 2 在 partial access 下会松到这种程度？两点原因：
 
 - **Partial access**：$u_i(x_j)$ 真实可访问的资源仅限于 $g_l^i \\cap \\text{supp}(x_{jl})$。Lemma 2 把分子放宽为 $\\sum_{r \\in \\Omega_l} x_{jr}$，丢掉了 $g_l^i$ 的限制。当不同租户的 $g_l^i$ 几乎不相交时，这一放宽产生的松弛误差与 $|g_l^i| / |\\Omega_l|$ 同阶。
-- **Leontief 形式**：$u_i$ 是各 meta-type 维度上的 *最小值*，而 Lemma 2 的右端是一个 *求和* 式上界。求和上界对最小值的近似在不等式方向上是单向松的，且此松弛随 meta-type 数 $L$ 线性增长。
+- **Leontief 形式**：$u_i$ 是各 meta-type 维度上的 _最小值_，而 Lemma 2 的右端是一个 _求和_ 式上界。求和上界对最小值的近似在不等式方向上是单向松的，且此松弛随 meta-type 数 $L$ 线性增长。
 
 把这两点叠加，partial access 下的 Lemma 2 在 $L \\ge 3$ 的实际场景中已经过度收紧。
 
 ## 一个干扰因素：silent fallback
 
-PairEF-auto 的最初实现里有一段 safety net：若 LP 输出的 social welfare 低于 DRF-MT，就回退到 DRF-MT 的 allocation。该 safety net 的初衷是保证 *worst-case* 不退化，但在评测层面，它把"LP 给出更差解"这一现象遮蔽成了"LP 与 DRF-MT 持平"。该副作用是上述问题被发现得较晚的直接原因；分析时若不绕过 fallback，将无法看到 LP 与真实可行域之间的差距。
+PairEF-auto 的最初实现里有一段 safety net：若 LP 输出的 social welfare 低于 DRF-MT，就回退到 DRF-MT 的 allocation。该 safety net 的初衷是保证 _worst-case_ 不退化，但在评测层面，它把"LP 给出更差解"这一现象遮蔽成了"LP 与 DRF-MT 持平"。该副作用是上述问题被发现得较晚的直接原因；分析时若不绕过 fallback，将无法看到 LP 与真实可行域之间的差距。
 
 ## 替代方案：cutting-plane EF
 
 一旦认识到线性 EF 充分条件不成立，可行的修正路线是：放弃在 LP 阶段就强制 EF，改为 cutting-plane：
 
 1. **第一阶段**：求解不带 EF 约束的 social welfare 最大化 LP，得到候选 $x^{(0)}$；
-2. **第二阶段**：在候选解上 *post-hoc* 计算逐对的 envy 矩阵 $E_{ij}^{(t)} = u_i(x_j^{(t)}) - u_i(x_i^{(t)})$；
+2. **第二阶段**：在候选解上 _post-hoc_ 计算逐对的 envy 矩阵 $E_{ij}^{(t)} = u_i(x_j^{(t)}) - u_i(x_i^{(t)})$；
 3. **第三阶段**：对每个被违反的 $(i, j)$（即 $E_{ij}^{(t)} > 0$），加入 *精确*的 EF cut $u_i(x_i) \\ge u_i(x_j)$（直接以非线性形式呈现，或在分段线性化后嵌入），返回第一阶段。
 
 该方案能正确处理 partial access 与 Leontief 非线性，代价是失去 closed-form LP 的解析性。我们目前正在 UNB-MT 主线上以这个方案替换 PairEF-auto。

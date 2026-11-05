@@ -11,12 +11,12 @@ categories: research
 
 在两套 MWDS 测试集 T1 / T2（合计约两千行 paired 样本）上，把 $K$-蚂蚁的 Ant-Q 模块插入 `ibmwds_init_bounds` 的 LB 端，相对于 ECAI 2025 baseline 得到如下结果：
 
-|                              | Deep-v6 vs Dual-Deep        | Fast-v19 vs Dual-Fast      |
-| ---------------------------- | --------------------------- | -------------------------- |
-| Row-averaged gap ↓           | $-23.68\\% \\,/\\, -31.23\\%$ | $-6.92\\% \\,/\\, -9.89\\%$  |
-| Per-instance win-rate (gap)  | $99.34\\% \\,/\\, 99.37\\%$   | $66.86\\% \\,/\\, 63.85\\%$  |
-| `#opt` 改变量                | $\\approx 0$                  | $\\approx 0$                |
-| `#min` 改变量                | $\\approx 0$                  | $\\approx 0$                |
+|                             | Deep-v6 vs Dual-Deep          | Fast-v19 vs Dual-Fast       |
+| --------------------------- | ----------------------------- | --------------------------- |
+| Row-averaged gap ↓          | $-23.68\\% \\,/\\, -31.23\\%$ | $-6.92\\% \\,/\\, -9.89\\%$ |
+| Per-instance win-rate (gap) | $99.34\\% \\,/\\, 99.37\\%$   | $66.86\\% \\,/\\, 63.85\\%$ |
+| `#opt` 改变量               | $\\approx 0$                  | $\\approx 0$                |
+| `#min` 改变量               | $\\approx 0$                  | $\\approx 0$                |
 
 `gap` 下降幅度很大，但表征"严格已知最优"的 `#opt` 与 UB 质量本身的 `#min` 几乎不变。第一反应是怀疑实现：`reduction` 接口被 Ant-Q 的随机性破坏、信息素更新中的边界溢出、随机种子未对齐等。逐一排查之后这些怀疑都不成立，问题并不在实现。
 
@@ -25,7 +25,7 @@ categories: research
 把三个指标重新写出来即可看出差别：
 
 - $\text{avg gap}(\\text{LB}, \\text{UB}) = (\\text{UB} - \\text{LB}) / \\text{LB}$。在 $\\text{UB}$ 不变的前提下，$\\text{LB}$ 的任何上抬都会同时缩小分子、放大分母，因此 `gap` 对 $\\text{LB}$ 的导数恒为负，即任何数值层面的 LB 收紧都会被 `gap` 反映出来。
-- $\\#\\text{opt}$ 是判别量 $[\\text{LB} \\equiv \\text{UB}]$ 的累加，仅在 $\\text{LB}$ 上抬到与 $\\text{UB}$ *完全相等* 时才发生 0–1 跃迁。这一指标对 LB 的敏感度本质上是离散的。
+- $\\#\\text{opt}$ 是判别量 $[\\text{LB} \\equiv \\text{UB}]$ 的累加，仅在 $\\text{LB}$ 上抬到与 $\\text{UB}$ _完全相等_ 时才发生 0–1 跃迁。这一指标对 LB 的敏感度本质上是离散的。
 - $\\#\\text{min}, \\#\\text{avg}$ 是 UB 的统计量，与 LB 无关。
 
 也就是说，`gap` 的下降并不能蕴含 `#opt` 或 `#min` 的改变；前者反映 LB 数值层面的收紧，后两者要求 LB 的收紧必须**触发某种使 UB 也发生变化的事件**。
@@ -43,7 +43,7 @@ LB 的数值变化并不直接送给 UB 子例程；UB 接收到的是这两类�
 
 ## 下一步：Tight-pair → Forced-Fix
 
-围绕"如何让 LB 端的数值改善真正传到 UB"这一问题，目前最便宜的修法是设计 *Tight-pair → Forced-Fix* 路径（路线 I）：当 ants 产出的 pair 触及 $\\text{bound ratio} \\to 1$ 区域时，将下一步 LB 收紧的 state transition 偏向于能触发 reduction 的方向。这相当于把"多样性 + 价值"形式的 RL 信号再叠加上"是否触发硬规则"的额外回报项。
+围绕"如何让 LB 端的数值改善真正传到 UB"这一问题，目前最便宜的修法是设计 _Tight-pair → Forced-Fix_ 路径（路线 I）：当 ants 产出的 pair 触及 $\\text{bound ratio} \\to 1$ 区域时，将下一步 LB 收紧的 state transition 偏向于能触发 reduction 的方向。这相当于把"多样性 + 价值"形式的 RL 信号再叠加上"是否触发硬规则"的额外回报项。
 
 更激进的路线还有两条：(II) 直接在 UB 端引入 ACO 探索；(III) 增加 DBS 的额外迭代轮数以让现有的 LB 改善有更多机会被规则吸收。这两条目前优先级低于路线 I，因为它们改动了基线的搜索结构，不便与 ECAI 2025 baseline 做严格对照。
 
